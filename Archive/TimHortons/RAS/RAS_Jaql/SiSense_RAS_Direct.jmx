@@ -1,0 +1,1653 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="3.2" jmeter="4.0 r1823414">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Sisense_RAS_Jaql" enabled="true">
+      <stringProp name="TestPlan.comments">Load testing of Logs and Modules dashboard of RAS</stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+        <collectionProp name="HeaderManager.headers">
+          <elementProp name="User-Agent" elementType="Header">
+            <stringProp name="Header.name">User-Agent</stringProp>
+            <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36</stringProp>
+          </elementProp>
+          <elementProp name="Accept-Language" elementType="Header">
+            <stringProp name="Header.name">Accept-Language</stringProp>
+            <stringProp name="Header.value">en-CA,en-GB;q=0.9,en-US;q=0.8,en;q=0.7</stringProp>
+          </elementProp>
+          <elementProp name="Accept-Encoding" elementType="Header">
+            <stringProp name="Header.name">Accept-Encoding</stringProp>
+            <stringProp name="Header.value">gzip, deflate, br</stringProp>
+          </elementProp>
+        </collectionProp>
+      </HeaderManager>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="BASE_URL_1" elementType="Argument">
+            <stringProp name="Argument.name">BASE_URL_1</stringProp>
+            <stringProp name="Argument.value">sisense-rbi-stage.alchemy-eng.com</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="BASE_URL_2" elementType="Argument">
+            <stringProp name="Argument.name">BASE_URL_2</stringProp>
+            <stringProp name="Argument.value">rapi.walkme.com</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="BASE_URL_3" elementType="Argument">
+            <stringProp name="Argument.name">BASE_URL_3</stringProp>
+            <stringProp name="Argument.value">ec.walkme.com</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="gaussianTimerDeviation" elementType="Argument">
+            <stringProp name="Argument.name">gaussianTimerDeviation</stringProp>
+            <stringProp name="Argument.value">3000</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="gaussianTimerDelay" elementType="Argument">
+            <stringProp name="Argument.name">gaussianTimerDelay</stringProp>
+            <stringProp name="Argument.value">1500</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
+        <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+          <collectionProp name="Arguments.arguments"/>
+        </elementProp>
+        <stringProp name="HTTPSampler.domain"></stringProp>
+        <stringProp name="HTTPSampler.port"></stringProp>
+        <stringProp name="HTTPSampler.protocol"></stringProp>
+        <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+        <stringProp name="HTTPSampler.path"></stringProp>
+        <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+        <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+        <stringProp name="HTTPSampler.response_timeout"></stringProp>
+      </ConfigTestElement>
+      <hashTree/>
+      <DNSCacheManager guiclass="DNSCachePanel" testclass="DNSCacheManager" testname="DNS Cache Manager" enabled="true">
+        <collectionProp name="DNSCacheManager.servers"/>
+        <boolProp name="DNSCacheManager.clearEachIteration">true</boolProp>
+        <boolProp name="DNSCacheManager.isCustomResolver">false</boolProp>
+      </DNSCacheManager>
+      <hashTree/>
+      <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
+        <collectionProp name="AuthManager.auth_list"/>
+      </AuthManager>
+      <hashTree/>
+      <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+        <collectionProp name="CookieManager.cookies">
+          <elementProp name="io" elementType="Cookie" testname="io">
+            <stringProp name="Cookie.value">_E8rX1FofU_OjmpQAACe</stringProp>
+            <stringProp name="Cookie.domain"></stringProp>
+            <stringProp name="Cookie.path"></stringProp>
+            <boolProp name="Cookie.secure">false</boolProp>
+            <longProp name="Cookie.expires">0</longProp>
+            <boolProp name="Cookie.path_specified">true</boolProp>
+            <boolProp name="Cookie.domain_specified">true</boolProp>
+          </elementProp>
+          <elementProp name="_ga" elementType="Cookie" testname="_ga">
+            <stringProp name="Cookie.value">GA1.2.1796341271.1532710562</stringProp>
+            <stringProp name="Cookie.domain"></stringProp>
+            <stringProp name="Cookie.path"></stringProp>
+            <boolProp name="Cookie.secure">false</boolProp>
+            <longProp name="Cookie.expires">0</longProp>
+            <boolProp name="Cookie.path_specified">true</boolProp>
+            <boolProp name="Cookie.domain_specified">true</boolProp>
+          </elementProp>
+          <elementProp name=".prism_anonymous" elementType="Cookie" testname=".prism_anonymous">
+            <stringProp name="Cookie.value">7923f6c6-925e-4f40-932a-92cd52cd9805</stringProp>
+            <stringProp name="Cookie.domain"></stringProp>
+            <stringProp name="Cookie.path"></stringProp>
+            <boolProp name="Cookie.secure">false</boolProp>
+            <longProp name="Cookie.expires">0</longProp>
+            <boolProp name="Cookie.path_specified">true</boolProp>
+            <boolProp name="Cookie.domain_specified">true</boolProp>
+          </elementProp>
+          <elementProp name=".ASPXANONYMOUS" elementType="Cookie" testname=".ASPXANONYMOUS">
+            <stringProp name="Cookie.value">fFkukn5m1AEkAAAAYzU3ZTYyNDItMTI2My00MWExLWJhY2UtMmRmZThjN2QyNWJhQiTvmRNoZyT4DkTdVzTSFHpmasw1</stringProp>
+            <stringProp name="Cookie.domain"></stringProp>
+            <stringProp name="Cookie.path"></stringProp>
+            <boolProp name="Cookie.secure">false</boolProp>
+            <longProp name="Cookie.expires">0</longProp>
+            <boolProp name="Cookie.path_specified">true</boolProp>
+            <boolProp name="Cookie.domain_specified">true</boolProp>
+          </elementProp>
+          <elementProp name="_gid" elementType="Cookie" testname="_gid">
+            <stringProp name="Cookie.value">GA1.2.1806027211.1536361595</stringProp>
+            <stringProp name="Cookie.domain"></stringProp>
+            <stringProp name="Cookie.path"></stringProp>
+            <boolProp name="Cookie.secure">false</boolProp>
+            <longProp name="Cookie.expires">0</longProp>
+            <boolProp name="Cookie.path_specified">true</boolProp>
+            <boolProp name="Cookie.domain_specified">true</boolProp>
+          </elementProp>
+          <elementProp name=".prism" elementType="Cookie" testname=".prism">
+            <stringProp name="Cookie.value">{&quot;name&quot;:&quot;.prism&quot;,&quot;token&quot;:&quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWI5NzQ4YjQwMjAwMDYyNzRjZDA1OWU5IiwiZGV2aWNlU2VjcmV0IjoiM2JhOGUyMmQtMWRlNy02NWZkLWVhMGYtYTE3ZGMyNGYyZjhjIiwiZGV2aWNlSWQiOiJlNTQ5YWM3YS1hYTE5LWQ1MGItNTUxYS1iNGRhOWJkNWYzZmIiLCJpYXQiOjE1MzY3MjU0OTR9.vQM4N9oX75MPE7D7yU8IKPA1kafTkcVqsS8c-GXH0U4&quot;,&quot;deviceId&quot;:&quot;e549ac7a-aa19-d50b-551a-b4da9bd5f3fb&quot;,&quot;expiration&quot;:&quot;2018-09-19T04:11:34.060Z&quot;,&quot;issueDate&quot;:&quot;2018-09-12T04:11:34.060Z&quot;}</stringProp>
+            <stringProp name="Cookie.domain"></stringProp>
+            <stringProp name="Cookie.path"></stringProp>
+            <boolProp name="Cookie.secure">false</boolProp>
+            <longProp name="Cookie.expires">0</longProp>
+            <boolProp name="Cookie.path_specified">true</boolProp>
+            <boolProp name="Cookie.domain_specified">true</boolProp>
+          </elementProp>
+          <elementProp name="_gat" elementType="Cookie" testname="_gat">
+            <stringProp name="Cookie.value">1</stringProp>
+            <stringProp name="Cookie.domain"></stringProp>
+            <stringProp name="Cookie.path"></stringProp>
+            <boolProp name="Cookie.secure">false</boolProp>
+            <longProp name="Cookie.expires">0</longProp>
+            <boolProp name="Cookie.path_specified">true</boolProp>
+            <boolProp name="Cookie.domain_specified">true</boolProp>
+          </elementProp>
+        </collectionProp>
+        <boolProp name="CookieManager.clearEachIteration">true</boolProp>
+      </CookieManager>
+      <hashTree/>
+      <CacheManager guiclass="CacheManagerGui" testclass="CacheManager" testname="HTTP Cache Manager" enabled="true">
+        <boolProp name="clearEachIteration">true</boolProp>
+        <boolProp name="useExpires">false</boolProp>
+      </CacheManager>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">startnextloop</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1363247040000</longProp>
+        <longProp name="ThreadGroup.end_time">1363247040000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration">0</stringProp>
+        <stringProp name="ThreadGroup.delay">0</stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Login" enabled="true"/>
+        <hashTree>
+          <com.blazemeter.jmeter.RandomCSVDataSetConfig guiclass="com.blazemeter.jmeter.RandomCSVDataSetConfigGui" testclass="com.blazemeter.jmeter.RandomCSVDataSetConfig" testname="bzm - Random CSV Data Set Config" enabled="true">
+            <stringProp name="filename">SisenseRasUsers.csv</stringProp>
+            <stringProp name="fileEncoding">UTF-8</stringProp>
+            <stringProp name="delimiter">,</stringProp>
+            <stringProp name="variableNames">user</stringProp>
+            <boolProp name="randomOrder">false</boolProp>
+            <boolProp name="ignoreFirstLine">true</boolProp>
+            <boolProp name="rewindOnTheEndOfList">true</boolProp>
+            <boolProp name="independentListPerThread">false</boolProp>
+          </com.blazemeter.jmeter.RandomCSVDataSetConfig>
+          <hashTree/>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="false">
+            <stringProp name="delimiter">,</stringProp>
+            <stringProp name="fileEncoding">UTF-8</stringProp>
+            <stringProp name="filename">SisenseRasUsers.csv</stringProp>
+            <boolProp name="ignoreFirstLine">false</boolProp>
+            <boolProp name="quotedData">false</boolProp>
+            <boolProp name="recycle">false</boolProp>
+            <stringProp name="shareMode">shareMode.all</stringProp>
+            <boolProp name="stopThread">true</boolProp>
+            <stringProp name="variableNames">user</stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="authentication/tryLogin" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="password" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                  <stringProp name="Argument.name">password</stringProp>
+                  <stringProp name="Argument.value">Password@1</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                </elementProp>
+                <elementProp name="localeId" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                  <stringProp name="Argument.name">localeId</stringProp>
+                  <stringProp name="Argument.value">en-CA</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                </elementProp>
+                <elementProp name="username" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                  <stringProp name="Argument.name">username</stringProp>
+                  <stringProp name="Argument.value">${user}@TH.idp.alchemysystems.com</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/v1/authentication/tryLogin</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">*/*</stringProp>
+                </elementProp>
+                <elementProp name="Origin" elementType="Header">
+                  <stringProp name="Header.name">Origin</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com</stringProp>
+                </elementProp>
+                <elementProp name="X-Requested-With" elementType="Header">
+                  <stringProp name="Header.name">X-Requested-With</stringProp>
+                  <stringProp name="Header.value">XMLHttpRequest</stringProp>
+                </elementProp>
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/x-www-form-urlencoded; charset=UTF-8</stringProp>
+                </elementProp>
+                <elementProp name="Referer" elementType="Header">
+                  <stringProp name="Header.name">Referer</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com/app/account</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">0</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="authentication/login" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="password" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                  <stringProp name="Argument.name">password</stringProp>
+                  <stringProp name="Argument.value">Password@1</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                </elementProp>
+                <elementProp name="localeId" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                  <stringProp name="Argument.name">localeId</stringProp>
+                  <stringProp name="Argument.value">en-CA</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                </elementProp>
+                <elementProp name="username" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                  <stringProp name="Argument.name">username</stringProp>
+                  <stringProp name="Argument.value">${user}@TH.idp.alchemysystems.com</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/v1/authentication/login</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">*/*</stringProp>
+                </elementProp>
+                <elementProp name="Origin" elementType="Header">
+                  <stringProp name="Header.name">Origin</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com</stringProp>
+                </elementProp>
+                <elementProp name="X-Requested-With" elementType="Header">
+                  <stringProp name="Header.name">X-Requested-With</stringProp>
+                  <stringProp name="Header.value">XMLHttpRequest</stringProp>
+                </elementProp>
+                <elementProp name="X-Device-Id" elementType="Header">
+                  <stringProp name="Header.name">X-Device-Id</stringProp>
+                  <stringProp name="Header.value">e549ac7a-aa19-d50b-551a-b4da9bd5f3fb</stringProp>
+                </elementProp>
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/x-www-form-urlencoded</stringProp>
+                </elementProp>
+                <elementProp name="Referer" elementType="Header">
+                  <stringProp name="Header.name">Referer</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com/app/account</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">276</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">accessToken</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.access_token</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="main#/home" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="password" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                  <stringProp name="Argument.name">password</stringProp>
+                  <stringProp name="Argument.value">Password@1</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                </elementProp>
+                <elementProp name="src" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                  <stringProp name="Argument.name">src</stringProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                </elementProp>
+                <elementProp name="isPersistent" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                  <stringProp name="Argument.name">isPersistent</stringProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                </elementProp>
+                <elementProp name="deviceId" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                  <stringProp name="Argument.name">deviceId</stringProp>
+                  <stringProp name="Argument.value">e549ac7a-aa19-d50b-551a-b4da9bd5f3fb</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                </elementProp>
+                <elementProp name="token" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                  <stringProp name="Argument.name">token</stringProp>
+                  <stringProp name="Argument.value">${accessToken}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                </elementProp>
+                <elementProp name="username" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                  <stringProp name="Argument.name">username</stringProp>
+                  <stringProp name="Argument.value">${user}@TH.idp.alchemysystems.com</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">app/main#/home</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Origin" elementType="Header">
+                  <stringProp name="Header.name">Origin</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com</stringProp>
+                </elementProp>
+                <elementProp name="Upgrade-Insecure-Requests" elementType="Header">
+                  <stringProp name="Header.name">Upgrade-Insecure-Requests</stringProp>
+                  <stringProp name="Header.value">1</stringProp>
+                </elementProp>
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/x-www-form-urlencoded</stringProp>
+                </elementProp>
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8</stringProp>
+                </elementProp>
+                <elementProp name="Referer" elementType="Header">
+                  <stringProp name="Header.name">Referer</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com/app/account</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">170</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="settings/public_settings" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/v1/settings/public_settings</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+                </elementProp>
+                <elementProp name="Referer" elementType="Header">
+                  <stringProp name="Header.name">Referer</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com/app/main</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">4064</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="users/loggedIn" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/users/loggedIn</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+                </elementProp>
+                <elementProp name="Referer" elementType="Header">
+                  <stringProp name="Header.name">Referer</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com/app/main</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">2</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="settings/system" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/v1/settings/system</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+                </elementProp>
+                <elementProp name="Referer" elementType="Header">
+                  <stringProp name="Header.name">Referer</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com/app/main</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">2</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="Gaussian Random Timer" enabled="true">
+            <stringProp name="ConstantTimer.delay">${gaussianTimerDelay}</stringProp>
+            <stringProp name="RandomTimer.range">${gaussianTimerDeviation}</stringProp>
+          </GaussianRandomTimer>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="TH_LOG" enabled="true"/>
+        <hashTree>
+          <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="Gaussian Random Timer" enabled="true">
+            <stringProp name="ConstantTimer.delay">${gaussianTimerDelay}</stringProp>
+            <stringProp name="RandomTimer.range">${gaussianTimerDeviation}</stringProp>
+          </GaussianRandomTimer>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="dashboards/5b69d5603384c81f5c0cb3e3 (TH_LOG)" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/dashboards/5b69d5603384c81f5c0cb3e3</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+                </elementProp>
+                <elementProp name="Referer" elementType="Header">
+                  <stringProp name="Header.name">Referer</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com/app/main</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">12323</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="elasticubes/getElasticubes" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/v1/elasticubes/getElasticubes</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+                </elementProp>
+                <elementProp name="Referer" elementType="Header">
+                  <stringProp name="Header.name">Referer</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com/app/main</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">460</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="TH_DagLevels" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;datasource&quot;:{&quot;fullname&quot;:&quot;Set/DagLevels_Set&quot;,&quot;title&quot;:&quot;DagLevels_Set&quot;},&quot;metadata&quot;:[{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_dag_levels.dag_id_parent]&quot;,&quot;datatype&quot;:&quot;numeric&quot;,&quot;title&quot;:&quot;dag_id_parent&quot;}},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_dag_levels.startlevel]&quot;,&quot;datatype&quot;:&quot;numeric&quot;,&quot;title&quot;:&quot;startlevel&quot;}},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_dag_levels.endlevel]&quot;,&quot;datatype&quot;:&quot;numeric&quot;,&quot;title&quot;:&quot;endlevel&quot;}},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_dag_levels.dagtype]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;title&quot;:&quot;dagtype&quot;}}],&quot;ungroup&quot;:true,&quot;count&quot;:3,&quot;offset&quot;:0,&quot;isMaskedResult&quot;:false,&quot;format&quot;:&quot;json&quot;,&quot;widget&quot;:&quot;5a7b4a7dffbeb52094ab4856;&quot;,&quot;dashboard&quot;:&quot;5a7b4a54ffbeb52094ab4843;DagLevels&quot;}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/datasources/DagLevels/jaql</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">*/*</stringProp>
+                </elementProp>
+                <elementProp name="Origin" elementType="Header">
+                  <stringProp name="Header.name">Origin</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com</stringProp>
+                </elementProp>
+                <elementProp name="X-Requested-With" elementType="Header">
+                  <stringProp name="Header.name">X-Requested-With</stringProp>
+                  <stringProp name="Header.value">XMLHttpRequest</stringProp>
+                </elementProp>
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/x-www-form-urlencoded; charset=UTF-8</stringProp>
+                </elementProp>
+                <elementProp name="Referer" elementType="Header">
+                  <stringProp name="Header.name">Referer</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com/app/main</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">250</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="api/activities" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">[{&quot;action&quot;:&quot;dashboardload&quot;,&quot;resourceId&quot;:&quot;dashboard;5b69d5603384c81f5c0cb3e3;16&quot;,&quot;device&quot;:&quot;desktop&quot;,&quot;cat&quot;:&quot;analytics&quot;,&quot;prod&quot;:&quot;webserver&quot;}]</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/activities</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+                </elementProp>
+                <elementProp name="Origin" elementType="Header">
+                  <stringProp name="Header.name">Origin</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com</stringProp>
+                </elementProp>
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+                </elementProp>
+                <elementProp name="Referer" elementType="Header">
+                  <stringProp name="Header.name">Referer</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com/app/main</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">2</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="TH_Location_Log" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;metadata&quot;:[{&quot;dim&quot;:&quot;[v_location.location_cd]&quot;,&quot;sort&quot;:&quot;asc&quot;}],&quot;offset&quot;:0,&quot;count&quot;:50,&quot;isMaskedResponse&quot;:false}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/datasources/TH-Log_Set/jaql</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+                </elementProp>
+                <elementProp name="Origin" elementType="Header">
+                  <stringProp name="Header.name">Origin</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com</stringProp>
+                </elementProp>
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+                </elementProp>
+                <elementProp name="Referer" elementType="Header">
+                  <stringProp name="Header.name">Referer</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com/app/main</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">2</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="TH_Time_Temperature_Log" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;,&quot;lastBuildTime&quot;:&quot;2018-08-02T17:30:34&quot;},&quot;metadata&quot;:[{&quot;jaql&quot;:{&quot;type&quot;:&quot;measure&quot;,&quot;formula&quot;:&quot;SUM([1AC24-C52]) /\nSUM([3E4EC-480])&quot;,&quot;context&quot;:{&quot;[1AC24-C52]&quot;:{&quot;dim&quot;:&quot;[v_log_summary.log_completed]&quot;,&quot;datatype&quot;:&quot;numeric&quot;,&quot;agg&quot;:&quot;sum&quot;,&quot;title&quot;:&quot;Total log_completed&quot;},&quot;[3E4EC-480]&quot;:{&quot;dim&quot;:&quot;[v_log_summary.log_required]&quot;,&quot;datatype&quot;:&quot;numeric&quot;,&quot;agg&quot;:&quot;sum&quot;,&quot;title&quot;:&quot;Total log_required&quot;}},&quot;title&quot;:&quot;Time and Temperature&quot;},&quot;format&quot;:{&quot;mask&quot;:{&quot;decimals&quot;:&quot;auto&quot;,&quot;percent&quot;:true},&quot;color&quot;:{&quot;type&quot;:&quot;color&quot;,&quot;color&quot;:&quot;#0071CE&quot;}},&quot;source&quot;:&quot;value&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_lang_text_action_category.log_category_name_text_cd]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;filter&quot;:{&quot;explicit&quot;:true,&quot;multiSelection&quot;:true,&quot;members&quot;:[&quot;LookLog.name.110&quot;,&quot;BILog.name.50&quot;]},&quot;collapsed&quot;:false,&quot;title&quot;:&quot;log_category_name_text_cd&quot;},&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_log_summary.task_date (Calendar)]&quot;,&quot;datatype&quot;:&quot;datetime&quot;,&quot;merged&quot;:true,&quot;isCustomCriteria&quot;:false,&quot;level&quot;:&quot;days&quot;,&quot;collapsed&quot;:true,&quot;title&quot;:&quot;RasDateRange&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;,&quot;lastBuildTime&quot;:&quot;2018-08-02T17:30:34&quot;},&quot;filter&quot;:{&quot;from&quot;:&quot;2017-01-01&quot;,&quot;to&quot;:&quot;2018-10-01&quot;}},&quot;disabled&quot;:false,&quot;isCascading&quot;:false,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.VP_OPS]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;VP_OPS1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.DIR_OPS]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;DIR_OPS1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MFP]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;MFP1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MOS]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;MOS1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MRM]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;MRM1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MRT]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;title&quot;:&quot;MRT1&quot;,&quot;isCustomCriteria&quot;:false,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.FZ_OPERATOR]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;isCustomCriteria&quot;:false,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;FZ_OPERATOR1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location.location_cd]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;isCustomCriteria&quot;:false,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;collapsed&quot;:true,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true},&quot;title&quot;:&quot;location_cd&quot;},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;}],&quot;isMaskedResult&quot;:true,&quot;format&quot;:&quot;json&quot;,&quot;widget&quot;:&quot;5b69d5603384c81f5c0cb3e5;&quot;,&quot;dashboard&quot;:&quot;5b69d5603384c81f5c0cb3e3;TH-Log&quot;,&quot;queryGuid&quot;:&quot;16D07-97A4-B89A-E0AA-F496-A42E-626E-826E-5&quot;,&quot;offset&quot;:0,&quot;count&quot;:50000}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/datasources/TH-Log_Set/jaql</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+                </elementProp>
+                <elementProp name="Origin" elementType="Header">
+                  <stringProp name="Header.name">Origin</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com</stringProp>
+                </elementProp>
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+                </elementProp>
+                <elementProp name="Referer" elementType="Header">
+                  <stringProp name="Header.name">Referer</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com/app/main</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">547</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+            <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="Gaussian Random Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">${gaussianTimerDelay}</stringProp>
+              <stringProp name="RandomTimer.range">${gaussianTimerDeviation}</stringProp>
+            </GaussianRandomTimer>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="TH_Receiving_Log" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;metadata&quot;:[{&quot;jaql&quot;:{&quot;type&quot;:&quot;measure&quot;,&quot;formula&quot;:&quot;SUM([A697C-CBC])&quot;,&quot;context&quot;:{&quot;[A697C-CBC]&quot;:{&quot;dim&quot;:&quot;[v_log_summary.log_completed]&quot;,&quot;datatype&quot;:&quot;numeric&quot;,&quot;agg&quot;:&quot;sum&quot;,&quot;title&quot;:&quot;Total log_completed&quot;},&quot;[27336-0C6]&quot;:{&quot;dim&quot;:&quot;[v_log_summary.log_required]&quot;,&quot;datatype&quot;:&quot;numeric&quot;,&quot;agg&quot;:&quot;sum&quot;,&quot;title&quot;:&quot;Total log_required&quot;}},&quot;title&quot;:&quot;Receiving&quot;},&quot;format&quot;:{&quot;mask&quot;:{&quot;abbreviations&quot;:{&quot;t&quot;:false,&quot;b&quot;:false,&quot;m&quot;:false,&quot;k&quot;:false},&quot;decimals&quot;:&quot;auto&quot;,&quot;number&quot;:{&quot;separated&quot;:true}},&quot;color&quot;:{&quot;type&quot;:&quot;color&quot;,&quot;color&quot;:&quot;#0071CE&quot;}},&quot;source&quot;:&quot;value&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_lang_text_action_category.log_category_name_text_cd]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;filter&quot;:{&quot;explicit&quot;:true,&quot;multiSelection&quot;:true,&quot;members&quot;:[&quot;LookLog.name.150&quot;,&quot;LookTempLogCategory.name.104&quot;]},&quot;collapsed&quot;:false,&quot;title&quot;:&quot;log_category_name_text_cd&quot;},&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_log_summary.task_date (Calendar)]&quot;,&quot;datatype&quot;:&quot;datetime&quot;,&quot;merged&quot;:true,&quot;isCustomCriteria&quot;:false,&quot;level&quot;:&quot;days&quot;,&quot;collapsed&quot;:true,&quot;title&quot;:&quot;RasDateRange&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;,&quot;lastBuildTime&quot;:&quot;2018-08-02T17:30:34&quot;},&quot;filter&quot;:{&quot;from&quot;:&quot;2017-01-01&quot;,&quot;to&quot;:&quot;2018-10-01&quot;}},&quot;disabled&quot;:false,&quot;isCascading&quot;:false,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.VP_OPS]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;VP_OPS1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.DIR_OPS]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;DIR_OPS1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MFP]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;MFP1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MOS]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;MOS1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MRM]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;MRM1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MRT]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;title&quot;:&quot;MRT1&quot;,&quot;isCustomCriteria&quot;:false,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.FZ_OPERATOR]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;isCustomCriteria&quot;:false,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;FZ_OPERATOR1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location.location_cd]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;isCustomCriteria&quot;:false,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;collapsed&quot;:true,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true},&quot;title&quot;:&quot;location_cd&quot;},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;}],&quot;isMaskedResult&quot;:true,&quot;format&quot;:&quot;json&quot;,&quot;widget&quot;:&quot;5b69d5603384c81f5c0cb3e7;&quot;,&quot;dashboard&quot;:&quot;5b69d5603384c81f5c0cb3e3;TH-Log&quot;,&quot;queryGuid&quot;:&quot;75059-8086-88FE-2F3A-2BA7-0915-07A6-8B4D-E&quot;,&quot;offset&quot;:0,&quot;count&quot;:50000}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/datasources/TH-Log_Set/jaql</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+                </elementProp>
+                <elementProp name="Origin" elementType="Header">
+                  <stringProp name="Header.name">Origin</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com</stringProp>
+                </elementProp>
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+                </elementProp>
+                <elementProp name="Referer" elementType="Header">
+                  <stringProp name="Header.name">Referer</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com/app/main</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">2</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="TH_ShiftObjectives_Log" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;metadata&quot;:[{&quot;jaql&quot;:{&quot;type&quot;:&quot;measure&quot;,&quot;formula&quot;:&quot;SUM([76653-04E]) /\nSUM([50BB5-58F])&quot;,&quot;context&quot;:{&quot;[76653-04E]&quot;:{&quot;dim&quot;:&quot;[v_log_summary.log_completed]&quot;,&quot;datatype&quot;:&quot;numeric&quot;,&quot;agg&quot;:&quot;sum&quot;,&quot;title&quot;:&quot;Total log_completed&quot;},&quot;[50BB5-58F]&quot;:{&quot;dim&quot;:&quot;[v_log_summary.log_required]&quot;,&quot;datatype&quot;:&quot;numeric&quot;,&quot;agg&quot;:&quot;sum&quot;,&quot;title&quot;:&quot;Total log_required&quot;}},&quot;title&quot;:&quot;Shift Objectives&quot;},&quot;format&quot;:{&quot;mask&quot;:{&quot;decimals&quot;:&quot;auto&quot;,&quot;percent&quot;:true},&quot;color&quot;:{&quot;type&quot;:&quot;color&quot;,&quot;color&quot;:&quot;#0071CE&quot;}},&quot;source&quot;:&quot;value&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_lang_text_action_category.log_category_name_text_cd]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;filter&quot;:{&quot;explicit&quot;:true,&quot;multiSelection&quot;:true,&quot;members&quot;:[&quot;LookLog.name.150&quot;,&quot;BILog.name.40&quot;]},&quot;collapsed&quot;:false,&quot;title&quot;:&quot;log_category_name_text_cd&quot;},&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_log_summary.task_date (Calendar)]&quot;,&quot;datatype&quot;:&quot;datetime&quot;,&quot;merged&quot;:true,&quot;isCustomCriteria&quot;:false,&quot;level&quot;:&quot;days&quot;,&quot;collapsed&quot;:true,&quot;title&quot;:&quot;RasDateRange&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;,&quot;lastBuildTime&quot;:&quot;2018-08-02T17:30:34&quot;},&quot;filter&quot;:{&quot;from&quot;:&quot;2017-01-01&quot;,&quot;to&quot;:&quot;2018-10-01&quot;}},&quot;disabled&quot;:false,&quot;isCascading&quot;:false,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.VP_OPS]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;VP_OPS1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.DIR_OPS]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;DIR_OPS1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MFP]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;MFP1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MOS]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;MOS1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MRM]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;MRM1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MRT]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;title&quot;:&quot;MRT1&quot;,&quot;isCustomCriteria&quot;:false,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.FZ_OPERATOR]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;isCustomCriteria&quot;:false,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;FZ_OPERATOR1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location.location_cd]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;isCustomCriteria&quot;:false,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;collapsed&quot;:true,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true},&quot;title&quot;:&quot;location_cd&quot;},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;}],&quot;isMaskedResult&quot;:true,&quot;format&quot;:&quot;json&quot;,&quot;widget&quot;:&quot;5b69d5603384c81f5c0cb3eb;&quot;,&quot;dashboard&quot;:&quot;5b69d5603384c81f5c0cb3e3;TH-Log&quot;,&quot;queryGuid&quot;:&quot;9A77F-306A-EFF9-73C8-3AED-C590-1CF8-3E4F-7&quot;,&quot;offset&quot;:0,&quot;count&quot;:50000}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/datasources/TH-Log_Set/jaql</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+                </elementProp>
+                <elementProp name="Origin" elementType="Header">
+                  <stringProp name="Header.name">Origin</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com</stringProp>
+                </elementProp>
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+                </elementProp>
+                <elementProp name="Referer" elementType="Header">
+                  <stringProp name="Header.name">Referer</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com/app/main</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">3</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="TH_Restroom_Inspection_Log" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;metadata&quot;:[{&quot;jaql&quot;:{&quot;type&quot;:&quot;measure&quot;,&quot;formula&quot;:&quot;SUM([76653-04E]) /\nSUM([50BB5-58F])&quot;,&quot;context&quot;:{&quot;[76653-04E]&quot;:{&quot;dim&quot;:&quot;[v_log_summary.log_completed]&quot;,&quot;datatype&quot;:&quot;numeric&quot;,&quot;agg&quot;:&quot;sum&quot;,&quot;title&quot;:&quot;Total log_completed&quot;},&quot;[50BB5-58F]&quot;:{&quot;dim&quot;:&quot;[v_log_summary.log_required]&quot;,&quot;datatype&quot;:&quot;numeric&quot;,&quot;agg&quot;:&quot;sum&quot;,&quot;title&quot;:&quot;Total log_required&quot;}},&quot;title&quot;:&quot;Restroom Inspection&quot;},&quot;format&quot;:{&quot;mask&quot;:{&quot;decimals&quot;:&quot;auto&quot;,&quot;percent&quot;:true},&quot;color&quot;:{&quot;type&quot;:&quot;color&quot;,&quot;color&quot;:&quot;#0071CE&quot;}},&quot;source&quot;:&quot;value&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_lang_text_action_category.log_category_name_text_cd]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;filter&quot;:{&quot;explicit&quot;:true,&quot;multiSelection&quot;:true,&quot;members&quot;:[&quot;LookLog.name.30&quot;]},&quot;collapsed&quot;:false,&quot;title&quot;:&quot;log_category_name_text_cd&quot;},&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_log_summary.task_date (Calendar)]&quot;,&quot;datatype&quot;:&quot;datetime&quot;,&quot;merged&quot;:true,&quot;isCustomCriteria&quot;:false,&quot;level&quot;:&quot;days&quot;,&quot;collapsed&quot;:true,&quot;title&quot;:&quot;RasDateRange&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;,&quot;lastBuildTime&quot;:&quot;2018-08-02T17:30:34&quot;},&quot;filter&quot;:{&quot;from&quot;:&quot;2017-01-01&quot;,&quot;to&quot;:&quot;2018-10-01&quot;}},&quot;disabled&quot;:false,&quot;isCascading&quot;:false,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.VP_OPS]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;VP_OPS1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.DIR_OPS]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;DIR_OPS1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MFP]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;MFP1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MOS]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;MOS1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MRM]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;MRM1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MRT]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;title&quot;:&quot;MRT1&quot;,&quot;isCustomCriteria&quot;:false,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.FZ_OPERATOR]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;isCustomCriteria&quot;:false,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;FZ_OPERATOR1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location.location_cd]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;isCustomCriteria&quot;:false,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;collapsed&quot;:true,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true},&quot;title&quot;:&quot;location_cd&quot;},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;}],&quot;isMaskedResult&quot;:true,&quot;format&quot;:&quot;json&quot;,&quot;widget&quot;:&quot;5b69d5603384c81f5c0cb3ea;&quot;,&quot;dashboard&quot;:&quot;5b69d5603384c81f5c0cb3e3;TH-Log&quot;,&quot;queryGuid&quot;:&quot;5DB38-DE2F-F830-6E9A-9E7C-FDAE-BC04-763E-E&quot;,&quot;offset&quot;:0,&quot;count&quot;:50000}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/datasources/TH-Log_Set/jaql</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+                </elementProp>
+                <elementProp name="Origin" elementType="Header">
+                  <stringProp name="Header.name">Origin</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com</stringProp>
+                </elementProp>
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+                </elementProp>
+                <elementProp name="Referer" elementType="Header">
+                  <stringProp name="Header.name">Referer</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com/app/main</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">1</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+            <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="Gaussian Random Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">${gaussianTimerDelay}</stringProp>
+              <stringProp name="RandomTimer.range">${gaussianTimerDeviation}</stringProp>
+            </GaussianRandomTimer>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="TH_Manager_Walk-thru_Log" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;metadata&quot;:[{&quot;jaql&quot;:{&quot;type&quot;:&quot;measure&quot;,&quot;formula&quot;:&quot;SUM([76653-04E]) /\nSUM([50BB5-58F])&quot;,&quot;context&quot;:{&quot;[76653-04E]&quot;:{&quot;dim&quot;:&quot;[v_log_summary.log_completed]&quot;,&quot;datatype&quot;:&quot;numeric&quot;,&quot;agg&quot;:&quot;sum&quot;,&quot;title&quot;:&quot;Total log_completed&quot;},&quot;[50BB5-58F]&quot;:{&quot;dim&quot;:&quot;[v_log_summary.log_required]&quot;,&quot;datatype&quot;:&quot;numeric&quot;,&quot;agg&quot;:&quot;sum&quot;,&quot;title&quot;:&quot;Total log_required&quot;}},&quot;title&quot;:&quot;Manager Walk-thru&quot;},&quot;format&quot;:{&quot;mask&quot;:{&quot;decimals&quot;:&quot;auto&quot;,&quot;percent&quot;:true},&quot;color&quot;:{&quot;type&quot;:&quot;color&quot;,&quot;color&quot;:&quot;#0071CE&quot;}},&quot;source&quot;:&quot;value&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_lang_text_action_category.log_category_name_text_cd]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;filter&quot;:{&quot;explicit&quot;:true,&quot;multiSelection&quot;:true,&quot;members&quot;:[&quot;LookLog.name.50&quot;]},&quot;collapsed&quot;:false,&quot;title&quot;:&quot;log_category_name_text_cd&quot;},&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_log_summary.task_date (Calendar)]&quot;,&quot;datatype&quot;:&quot;datetime&quot;,&quot;merged&quot;:true,&quot;isCustomCriteria&quot;:false,&quot;level&quot;:&quot;days&quot;,&quot;collapsed&quot;:true,&quot;title&quot;:&quot;RasDateRange&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;,&quot;lastBuildTime&quot;:&quot;2018-08-02T17:30:34&quot;},&quot;filter&quot;:{&quot;from&quot;:&quot;2017-01-01&quot;,&quot;to&quot;:&quot;2018-10-01&quot;}},&quot;disabled&quot;:false,&quot;isCascading&quot;:false,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.VP_OPS]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;VP_OPS1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.DIR_OPS]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;DIR_OPS1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MFP]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;MFP1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MOS]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;MOS1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MRM]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;MRM1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MRT]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;title&quot;:&quot;MRT1&quot;,&quot;isCustomCriteria&quot;:false,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.FZ_OPERATOR]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;isCustomCriteria&quot;:false,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;FZ_OPERATOR1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location.location_cd]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;isCustomCriteria&quot;:false,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;collapsed&quot;:true,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true},&quot;title&quot;:&quot;location_cd&quot;},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;}],&quot;isMaskedResult&quot;:true,&quot;format&quot;:&quot;json&quot;,&quot;widget&quot;:&quot;5b74866f2829172e7c3ccdca;&quot;,&quot;dashboard&quot;:&quot;5b69d5603384c81f5c0cb3e3;TH-Log&quot;,&quot;queryGuid&quot;:&quot;8C8E2-7E9E-2152-686A-1732-0C30-6D23-BBD9-0&quot;,&quot;offset&quot;:0,&quot;count&quot;:50000}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/datasources/TH-Log_Set/jaql</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+                </elementProp>
+                <elementProp name="Origin" elementType="Header">
+                  <stringProp name="Header.name">Origin</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com</stringProp>
+                </elementProp>
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+                </elementProp>
+                <elementProp name="Referer" elementType="Header">
+                  <stringProp name="Header.name">Referer</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com/app/main</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">2</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="TH_Equipment_Calibration_Log" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;metadata&quot;:[{&quot;jaql&quot;:{&quot;type&quot;:&quot;measure&quot;,&quot;formula&quot;:&quot;SUM([76653-04E]) /\nSUM([50BB5-58F])&quot;,&quot;context&quot;:{&quot;[76653-04E]&quot;:{&quot;dim&quot;:&quot;[v_log_summary.log_completed]&quot;,&quot;datatype&quot;:&quot;numeric&quot;,&quot;agg&quot;:&quot;sum&quot;,&quot;title&quot;:&quot;Total log_completed&quot;},&quot;[50BB5-58F]&quot;:{&quot;dim&quot;:&quot;[v_log_summary.log_required]&quot;,&quot;datatype&quot;:&quot;numeric&quot;,&quot;agg&quot;:&quot;sum&quot;,&quot;title&quot;:&quot;Total log_required&quot;}},&quot;title&quot;:&quot;Equipment Calibration&quot;},&quot;format&quot;:{&quot;mask&quot;:{&quot;decimals&quot;:&quot;auto&quot;,&quot;percent&quot;:true},&quot;color&quot;:{&quot;type&quot;:&quot;color&quot;,&quot;color&quot;:&quot;#0071CE&quot;}},&quot;source&quot;:&quot;value&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_lang_text_action_category.log_category_name_text_cd]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;filter&quot;:{&quot;explicit&quot;:true,&quot;multiSelection&quot;:true,&quot;members&quot;:[&quot;BILog.name.30&quot;]},&quot;collapsed&quot;:false,&quot;title&quot;:&quot;log_category_name_text_cd&quot;},&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_log_summary.task_date (Calendar)]&quot;,&quot;datatype&quot;:&quot;datetime&quot;,&quot;merged&quot;:true,&quot;isCustomCriteria&quot;:false,&quot;level&quot;:&quot;days&quot;,&quot;collapsed&quot;:true,&quot;title&quot;:&quot;RasDateRange&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;,&quot;lastBuildTime&quot;:&quot;2018-08-02T17:30:34&quot;},&quot;filter&quot;:{&quot;from&quot;:&quot;2017-01-01&quot;,&quot;to&quot;:&quot;2018-10-01&quot;}},&quot;disabled&quot;:false,&quot;isCascading&quot;:false,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.VP_OPS]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;VP_OPS1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.DIR_OPS]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;DIR_OPS1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MFP]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;MFP1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MOS]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;MOS1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MRM]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;MRM1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MRT]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;title&quot;:&quot;MRT1&quot;,&quot;isCustomCriteria&quot;:false,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.FZ_OPERATOR]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;isCustomCriteria&quot;:false,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;FZ_OPERATOR1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location.location_cd]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;isCustomCriteria&quot;:false,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;collapsed&quot;:true,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true},&quot;title&quot;:&quot;location_cd&quot;},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;}],&quot;isMaskedResult&quot;:true,&quot;format&quot;:&quot;json&quot;,&quot;widget&quot;:&quot;5b7485c22829172e7c3ccd74;&quot;,&quot;dashboard&quot;:&quot;5b69d5603384c81f5c0cb3e3;TH-Log&quot;,&quot;queryGuid&quot;:&quot;31443-71F8-F017-F5B9-656A-30C9-2611-23A9-E&quot;,&quot;offset&quot;:0,&quot;count&quot;:50000}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/datasources/TH-Log_Set/jaql</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+                </elementProp>
+                <elementProp name="Origin" elementType="Header">
+                  <stringProp name="Header.name">Origin</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com</stringProp>
+                </elementProp>
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+                </elementProp>
+                <elementProp name="Referer" elementType="Header">
+                  <stringProp name="Header.name">Referer</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com/app/main</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">1</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="TH_Interior/Exterior Area Inspection_Log" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;metadata&quot;:[{&quot;jaql&quot;:{&quot;type&quot;:&quot;measure&quot;,&quot;formula&quot;:&quot;SUM([76653-04E]) /\nSUM([50BB5-58F])&quot;,&quot;context&quot;:{&quot;[76653-04E]&quot;:{&quot;dim&quot;:&quot;[v_log_summary.log_completed]&quot;,&quot;datatype&quot;:&quot;numeric&quot;,&quot;agg&quot;:&quot;sum&quot;,&quot;title&quot;:&quot;Total log_completed&quot;},&quot;[50BB5-58F]&quot;:{&quot;dim&quot;:&quot;[v_log_summary.log_required]&quot;,&quot;datatype&quot;:&quot;numeric&quot;,&quot;agg&quot;:&quot;sum&quot;,&quot;title&quot;:&quot;Total log_required&quot;}},&quot;title&quot;:&quot;Interior/Exterior Area Inspection&quot;},&quot;format&quot;:{&quot;mask&quot;:{&quot;decimals&quot;:&quot;auto&quot;,&quot;percent&quot;:true},&quot;color&quot;:{&quot;type&quot;:&quot;color&quot;,&quot;color&quot;:&quot;#0071CE&quot;}},&quot;source&quot;:&quot;value&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_lang_text_action_category.log_category_name_text_cd]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;filter&quot;:{&quot;explicit&quot;:true,&quot;multiSelection&quot;:true,&quot;members&quot;:[&quot;LookLog.name.10&quot;]},&quot;collapsed&quot;:false,&quot;title&quot;:&quot;log_category_name_text_cd&quot;},&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_log_summary.task_date (Calendar)]&quot;,&quot;datatype&quot;:&quot;datetime&quot;,&quot;merged&quot;:true,&quot;isCustomCriteria&quot;:false,&quot;level&quot;:&quot;days&quot;,&quot;collapsed&quot;:true,&quot;title&quot;:&quot;RasDateRange&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;,&quot;lastBuildTime&quot;:&quot;2018-08-02T17:30:34&quot;},&quot;filter&quot;:{&quot;from&quot;:&quot;2017-01-01&quot;,&quot;to&quot;:&quot;2018-10-01&quot;}},&quot;disabled&quot;:false,&quot;isCascading&quot;:false,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.VP_OPS]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;VP_OPS1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.DIR_OPS]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;DIR_OPS1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MFP]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;MFP1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MOS]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;MOS1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MRM]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;MRM1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MRT]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;title&quot;:&quot;MRT1&quot;,&quot;isCustomCriteria&quot;:false,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.FZ_OPERATOR]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;isCustomCriteria&quot;:false,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;FZ_OPERATOR1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location.location_cd]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;isCustomCriteria&quot;:false,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;collapsed&quot;:true,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true},&quot;title&quot;:&quot;location_cd&quot;},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;}],&quot;isMaskedResult&quot;:true,&quot;format&quot;:&quot;json&quot;,&quot;widget&quot;:&quot;5b7486a32829172e7c3cce0a;&quot;,&quot;dashboard&quot;:&quot;5b69d5603384c81f5c0cb3e3;TH-Log&quot;,&quot;queryGuid&quot;:&quot;B1A5E-D098-1863-1539-B2F3-5930-47A9-E7EE-8&quot;,&quot;offset&quot;:0,&quot;count&quot;:50000}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/datasources/TH-Log_Set/jaql</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+                </elementProp>
+                <elementProp name="Origin" elementType="Header">
+                  <stringProp name="Header.name">Origin</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com</stringProp>
+                </elementProp>
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+                </elementProp>
+                <elementProp name="Referer" elementType="Header">
+                  <stringProp name="Header.name">Referer</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com/app/main</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="Gaussian Random Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">${gaussianTimerDelay}</stringProp>
+              <stringProp name="RandomTimer.range">${gaussianTimerDeviation}</stringProp>
+            </GaussianRandomTimer>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="TH_Exterior Winter Inspection/Inventory_Log" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;metadata&quot;:[{&quot;jaql&quot;:{&quot;type&quot;:&quot;measure&quot;,&quot;formula&quot;:&quot;SUM([76653-04E]) /\nSUM([50BB5-58F])&quot;,&quot;context&quot;:{&quot;[76653-04E]&quot;:{&quot;dim&quot;:&quot;[v_log_summary.log_completed]&quot;,&quot;datatype&quot;:&quot;numeric&quot;,&quot;agg&quot;:&quot;sum&quot;,&quot;title&quot;:&quot;Total log_completed&quot;},&quot;[50BB5-58F]&quot;:{&quot;dim&quot;:&quot;[v_log_summary.log_required]&quot;,&quot;datatype&quot;:&quot;numeric&quot;,&quot;agg&quot;:&quot;sum&quot;,&quot;title&quot;:&quot;Total log_required&quot;}},&quot;title&quot;:&quot;Exterior Winter Inspection/Inventory&quot;},&quot;format&quot;:{&quot;mask&quot;:{&quot;decimals&quot;:&quot;auto&quot;,&quot;percent&quot;:true},&quot;color&quot;:{&quot;type&quot;:&quot;color&quot;,&quot;color&quot;:&quot;#0071CE&quot;}},&quot;source&quot;:&quot;value&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_lang_text_action_category.log_category_name_text_cd]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;filter&quot;:{&quot;explicit&quot;:true,&quot;multiSelection&quot;:true,&quot;members&quot;:[&quot;LookLog.name.20&quot;]},&quot;collapsed&quot;:false,&quot;title&quot;:&quot;log_category_name_text_cd&quot;},&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_log_summary.task_date (Calendar)]&quot;,&quot;datatype&quot;:&quot;datetime&quot;,&quot;merged&quot;:true,&quot;isCustomCriteria&quot;:false,&quot;level&quot;:&quot;days&quot;,&quot;collapsed&quot;:true,&quot;title&quot;:&quot;RasDateRange&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;,&quot;lastBuildTime&quot;:&quot;2018-08-02T17:30:34&quot;},&quot;filter&quot;:{&quot;from&quot;:&quot;2017-01-01&quot;,&quot;to&quot;:&quot;2018-10-01&quot;}},&quot;disabled&quot;:false,&quot;isCascading&quot;:false,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.VP_OPS]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;VP_OPS1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.DIR_OPS]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;DIR_OPS1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MFP]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;MFP1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MOS]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;MOS1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MRM]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;MRM1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MRT]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;title&quot;:&quot;MRT1&quot;,&quot;isCustomCriteria&quot;:false,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.FZ_OPERATOR]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;isCustomCriteria&quot;:false,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;title&quot;:&quot;FZ_OPERATOR1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location.location_cd]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;isCustomCriteria&quot;:false,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Log_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Log_Set&quot;},&quot;collapsed&quot;:true,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true},&quot;title&quot;:&quot;location_cd&quot;},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;}],&quot;isMaskedResult&quot;:true,&quot;format&quot;:&quot;json&quot;,&quot;widget&quot;:&quot;5b74866c2829172e7c3ccdc6;&quot;,&quot;dashboard&quot;:&quot;5b69d5603384c81f5c0cb3e3;TH-Log&quot;,&quot;queryGuid&quot;:&quot;7B9BF-5285-3B7A-14CB-FBD1-70EF-F4BF-52F1-7&quot;,&quot;offset&quot;:0,&quot;count&quot;:50000}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/datasources/TH-Log_Set/jaql</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+                </elementProp>
+                <elementProp name="Origin" elementType="Header">
+                  <stringProp name="Header.name">Origin</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com</stringProp>
+                </elementProp>
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+                </elementProp>
+                <elementProp name="Referer" elementType="Header">
+                  <stringProp name="Header.name">Referer</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com/app/main</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">2</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="logs/timer" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;dashboard&quot;:{&quot;oid&quot;:&quot;5b69d5603384c81f5c0cb3e3&quot;,&quot;title&quot;:&quot;TH-Log&quot;,&quot;logStartLoad&quot;:1536725514051,&quot;logEndLoad&quot;:1536725515896,&quot;logStartRefresh&quot;:0,&quot;logEndRefresh&quot;:0,&quot;widgets&quot;:[{&quot;oid&quot;:&quot;5b69d5603384c81f5c0cb3e7&quot;,&quot;type&quot;:&quot;indicator&quot;,&quot;title&quot;:&quot;&quot;,&quot;logStartLoad&quot;:1536725514155,&quot;logEndLoad&quot;:1536725515697,&quot;logStartQuery&quot;:1536725515279,&quot;logEndQuery&quot;:1536725515675,&quot;logStartRender&quot;:1536725515678,&quot;logEndRender&quot;:1536725515699},{&quot;oid&quot;:&quot;5b69d5603384c81f5c0cb3e5&quot;,&quot;type&quot;:&quot;indicator&quot;,&quot;title&quot;:&quot;&quot;,&quot;logStartLoad&quot;:1536725514125,&quot;logEndLoad&quot;:1536725515750,&quot;logStartQuery&quot;:1536725515255,&quot;logEndQuery&quot;:1536725515748,&quot;logStartRender&quot;:1536725515748,&quot;logEndRender&quot;:1536725515751},{&quot;oid&quot;:&quot;5b69d5603384c81f5c0cb3ea&quot;,&quot;type&quot;:&quot;indicator&quot;,&quot;title&quot;:&quot;&quot;,&quot;logStartLoad&quot;:1536725514211,&quot;logEndLoad&quot;:1536725515708,&quot;logStartQuery&quot;:1536725515311,&quot;logEndQuery&quot;:1536725515703,&quot;logStartRender&quot;:1536725515704,&quot;logEndRender&quot;:1536725515709},{&quot;oid&quot;:&quot;5b69d5603384c81f5c0cb3eb&quot;,&quot;type&quot;:&quot;indicator&quot;,&quot;title&quot;:&quot;&quot;,&quot;logStartLoad&quot;:1536725514183,&quot;logEndLoad&quot;:1536725515787,&quot;logStartQuery&quot;:1536725515299,&quot;logEndQuery&quot;:1536725515784,&quot;logStartRender&quot;:1536725515784,&quot;logEndRender&quot;:1536725515787},{&quot;oid&quot;:&quot;5b69d8473384c81f5c0cb4f8&quot;,&quot;type&quot;:&quot;richtexteditor&quot;,&quot;title&quot;:&quot;RICHTEXT_MAIN.TITLE&quot;,&quot;logStartLoad&quot;:1536725514224,&quot;logEndLoad&quot;:1536725515500,&quot;logStartQuery&quot;:0,&quot;logEndQuery&quot;:0,&quot;logStartRender&quot;:1536725515311,&quot;logEndRender&quot;:1536725515321},{&quot;oid&quot;:&quot;5b69d8b63384c81f5c0cb511&quot;,&quot;type&quot;:&quot;richtexteditor&quot;,&quot;title&quot;:&quot;RICHTEXT_MAIN.TITLE&quot;,&quot;logStartLoad&quot;:1536725514105,&quot;logEndLoad&quot;:1536725515456,&quot;logStartQuery&quot;:0,&quot;logEndQuery&quot;:0,&quot;logStartRender&quot;:1536725515201,&quot;logEndRender&quot;:1536725515253},{&quot;oid&quot;:&quot;5b69d9223384c81f5c0cb52a&quot;,&quot;type&quot;:&quot;richtexteditor&quot;,&quot;title&quot;:&quot;RICHTEXT_MAIN.TITLE&quot;,&quot;logStartLoad&quot;:1536725514144,&quot;logEndLoad&quot;:1536725515474,&quot;logStartQuery&quot;:0,&quot;logEndQuery&quot;:0,&quot;logStartRender&quot;:1536725515259,&quot;logEndRender&quot;:1536725515278},{&quot;oid&quot;:&quot;5b69d98c3384c81f5c0cb53c&quot;,&quot;type&quot;:&quot;richtexteditor&quot;,&quot;title&quot;:&quot;RICHTEXT_MAIN.TITLE&quot;,&quot;logStartLoad&quot;:1536725514172,&quot;logEndLoad&quot;:1536725515480,&quot;logStartQuery&quot;:0,&quot;logEndQuery&quot;:0,&quot;logStartRender&quot;:1536725515282,&quot;logEndRender&quot;:1536725515298},{&quot;oid&quot;:&quot;5b7485c22829172e7c3ccd74&quot;,&quot;type&quot;:&quot;indicator&quot;,&quot;title&quot;:&quot;&quot;,&quot;logStartLoad&quot;:1536725514256,&quot;logEndLoad&quot;:1536725515777,&quot;logStartQuery&quot;:1536725515333,&quot;logEndQuery&quot;:1536725515773,&quot;logStartRender&quot;:1536725515774,&quot;logEndRender&quot;:1536725515777},{&quot;oid&quot;:&quot;5b7486082829172e7c3ccdb3&quot;,&quot;type&quot;:&quot;richtexteditor&quot;,&quot;title&quot;:&quot;RICHTEXT_MAIN.TITLE&quot;,&quot;logStartLoad&quot;:1536725514201,&quot;logEndLoad&quot;:1536725515489,&quot;logStartQuery&quot;:0,&quot;logEndQuery&quot;:0,&quot;logStartRender&quot;:1536725515300,&quot;logEndRender&quot;:1536725515309},{&quot;oid&quot;:&quot;5b74866f2829172e7c3ccdca&quot;,&quot;type&quot;:&quot;indicator&quot;,&quot;title&quot;:&quot;&quot;,&quot;logStartLoad&quot;:1536725514234,&quot;logEndLoad&quot;:1536725515768,&quot;logStartQuery&quot;:1536725515322,&quot;logEndQuery&quot;:1536725515761,&quot;logStartRender&quot;:1536725515762,&quot;logEndRender&quot;:1536725515768},{&quot;oid&quot;:&quot;5b74866c2829172e7c3ccdc6&quot;,&quot;type&quot;:&quot;indicator&quot;,&quot;title&quot;:&quot;&quot;,&quot;logStartLoad&quot;:1536725514307,&quot;logEndLoad&quot;:1536725515858,&quot;logStartQuery&quot;:1536725515358,&quot;logEndQuery&quot;:1536725515855,&quot;logStartRender&quot;:1536725515856,&quot;logEndRender&quot;:1536725515858},{&quot;oid&quot;:&quot;5b7486a02829172e7c3cce06&quot;,&quot;type&quot;:&quot;richtexteditor&quot;,&quot;title&quot;:&quot;RICHTEXT_MAIN.TITLE&quot;,&quot;logStartLoad&quot;:1536725514296,&quot;logEndLoad&quot;:1536725515519,&quot;logStartQuery&quot;:0,&quot;logEndQuery&quot;:0,&quot;logStartRender&quot;:1536725515348,&quot;logEndRender&quot;:1536725515357},{&quot;oid&quot;:&quot;5b7486732829172e7c3ccdd0&quot;,&quot;type&quot;:&quot;richtexteditor&quot;,&quot;title&quot;:&quot;RICHTEXT_MAIN.TITLE&quot;,&quot;logStartLoad&quot;:1536725514273,&quot;logEndLoad&quot;:1536725515512,&quot;logStartQuery&quot;:0,&quot;logEndQuery&quot;:0,&quot;logStartRender&quot;:1536725515335,&quot;logEndRender&quot;:1536725515346},{&quot;oid&quot;:&quot;5b7486682829172e7c3ccdc2&quot;,&quot;type&quot;:&quot;richtexteditor&quot;,&quot;title&quot;:&quot;RICHTEXT_MAIN.TITLE&quot;,&quot;logStartLoad&quot;:1536725514246,&quot;logEndLoad&quot;:1536725515506,&quot;logStartQuery&quot;:0,&quot;logEndQuery&quot;:0,&quot;logStartRender&quot;:1536725515323,&quot;logEndRender&quot;:1536725515333},{&quot;oid&quot;:&quot;5b7486a32829172e7c3cce0a&quot;,&quot;type&quot;:&quot;indicator&quot;,&quot;title&quot;:&quot;&quot;,&quot;logStartLoad&quot;:1536725514284,&quot;logEndLoad&quot;:1536725515854,&quot;logStartQuery&quot;:1536725515346,&quot;logEndQuery&quot;:1536725515851,&quot;logStartRender&quot;:1536725515852,&quot;logEndRender&quot;:1536725515854}]}}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/v1/logs/timer</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+                </elementProp>
+                <elementProp name="Origin" elementType="Header">
+                  <stringProp name="Header.name">Origin</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com</stringProp>
+                </elementProp>
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+                </elementProp>
+                <elementProp name="Referer" elementType="Header">
+                  <stringProp name="Header.name">Referer</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com/app/main</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">529</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="Gaussian Random Timer" enabled="true">
+            <stringProp name="ConstantTimer.delay">${gaussianTimerDelay}</stringProp>
+            <stringProp name="RandomTimer.range">${gaussianTimerDeviation}</stringProp>
+          </GaussianRandomTimer>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="TH_Module" enabled="true"/>
+        <hashTree>
+          <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="Gaussian Random Timer" enabled="true">
+            <stringProp name="ConstantTimer.delay">${gaussianTimerDelay}</stringProp>
+            <stringProp name="RandomTimer.range">${gaussianTimerDeviation}</stringProp>
+          </GaussianRandomTimer>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="dashboards/5b74896e2829172e7c3ccf76 (TH-Module)" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/dashboards/5b74896e2829172e7c3ccf76</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">0</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="elasticubes/getElasticubes" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/v1/elasticubes/getElasticubes</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">1093</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="TH_Daglevels_Module" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;datasource&quot;:{&quot;fullname&quot;:&quot;Set/DagLevels_Set&quot;,&quot;title&quot;:&quot;DagLevels_Set&quot;},&quot;metadata&quot;:[{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_dag_levels.dag_id_parent]&quot;,&quot;datatype&quot;:&quot;numeric&quot;,&quot;title&quot;:&quot;dag_id_parent&quot;}},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_dag_levels.startlevel]&quot;,&quot;datatype&quot;:&quot;numeric&quot;,&quot;title&quot;:&quot;startlevel&quot;}},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_dag_levels.endlevel]&quot;,&quot;datatype&quot;:&quot;numeric&quot;,&quot;title&quot;:&quot;endlevel&quot;}},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_dag_levels.dagtype]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;title&quot;:&quot;dagtype&quot;}}],&quot;ungroup&quot;:true,&quot;count&quot;:3,&quot;offset&quot;:0,&quot;isMaskedResult&quot;:false,&quot;format&quot;:&quot;json&quot;,&quot;widget&quot;:&quot;5a7b4a7dffbeb52094ab4856;&quot;,&quot;dashboard&quot;:&quot;5a7b4a54ffbeb52094ab4843;DagLevels&quot;}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/datasources/DagLevels/jaql</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">*/*</stringProp>
+                </elementProp>
+                <elementProp name="Origin" elementType="Header">
+                  <stringProp name="Header.name">Origin</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com</stringProp>
+                </elementProp>
+                <elementProp name="X-Requested-With" elementType="Header">
+                  <stringProp name="Header.name">X-Requested-With</stringProp>
+                  <stringProp name="Header.value">XMLHttpRequest</stringProp>
+                </elementProp>
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/x-www-form-urlencoded; charset=UTF-8</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">165</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="api/activities" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">[{&quot;action&quot;:&quot;dashboardload&quot;,&quot;resourceId&quot;:&quot;dashboard;5b74896e2829172e7c3ccf76;4&quot;,&quot;device&quot;:&quot;desktop&quot;,&quot;cat&quot;:&quot;analytics&quot;,&quot;prod&quot;:&quot;webserver&quot;}]</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/activities</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+                </elementProp>
+                <elementProp name="Origin" elementType="Header">
+                  <stringProp name="Header.name">Origin</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com</stringProp>
+                </elementProp>
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">2</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="TH_Training_Log" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Module_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Module_Set&quot;},&quot;metadata&quot;:[{&quot;jaql&quot;:{&quot;type&quot;:&quot;measure&quot;,&quot;formula&quot;:&quot;CASE\nWHEN [3797F-1CC]=0 and [F4002-823]=1 THEN [A7012-E77]\nWHEN [3797F-1CC]=0 AND [F4002-823]&gt;1 THEN 0/0\nELSE [1D0EB-F8E]/[3797F-1CC]\nEND&quot;,&quot;context&quot;:{&quot;[A7012-E77]&quot;:{&quot;dim&quot;:&quot;[v_module_summary.completion_percent]&quot;,&quot;datatype&quot;:&quot;numeric&quot;,&quot;agg&quot;:&quot;sum&quot;,&quot;title&quot;:&quot;Total completion_percent&quot;},&quot;[F4002-823]&quot;:{&quot;dim&quot;:&quot;[v_location.location_id]&quot;,&quot;datatype&quot;:&quot;numeric&quot;,&quot;merged&quot;:true,&quot;agg&quot;:&quot;count&quot;,&quot;title&quot;:&quot;# of unique location_id&quot;},&quot;[1D0EB-F8E]&quot;:{&quot;dim&quot;:&quot;[v_module_summary.course_completed]&quot;,&quot;datatype&quot;:&quot;numeric&quot;,&quot;agg&quot;:&quot;sum&quot;,&quot;title&quot;:&quot;Total course_completed&quot;},&quot;[3797F-1CC]&quot;:{&quot;dim&quot;:&quot;[v_module_summary.course_required]&quot;,&quot;datatype&quot;:&quot;numeric&quot;,&quot;agg&quot;:&quot;sum&quot;,&quot;title&quot;:&quot;Total course_required&quot;}},&quot;title&quot;:&quot;Training&quot;},&quot;format&quot;:{&quot;mask&quot;:{&quot;decimals&quot;:&quot;auto&quot;,&quot;percent&quot;:true},&quot;color&quot;:{&quot;type&quot;:&quot;color&quot;,&quot;color&quot;:&quot;#0071CE&quot;}},&quot;source&quot;:&quot;value&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_lang_text_program.text_cd]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;filter&quot;:{&quot;explicit&quot;:true,&quot;multiSelection&quot;:true,&quot;members&quot;:[&quot;LookProgram.name.AFTIMS&quot;]},&quot;collapsed&quot;:false,&quot;title&quot;:&quot;text_cd&quot;},&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_module_summary.asofdate (Calendar)]&quot;,&quot;datatype&quot;:&quot;datetime&quot;,&quot;merged&quot;:true,&quot;level&quot;:&quot;days&quot;,&quot;collapsed&quot;:true,&quot;isCustomCriteria&quot;:true,&quot;title&quot;:&quot;RasDateRange&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Module_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Module_Set&quot;},&quot;filter&quot;:{&quot;from&quot;:&quot;2017-09-05&quot;,&quot;to&quot;:&quot;2018-09-05&quot;}},&quot;disabled&quot;:false,&quot;isCascading&quot;:false,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.VP_OPS]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Module_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Module_Set&quot;},&quot;title&quot;:&quot;VP_OPS1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.DIR_OPS]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Module_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Module_Set&quot;},&quot;title&quot;:&quot;DIR_OPS1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MFP]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;isCustomCriteria&quot;:false,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Module_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Module_Set&quot;},&quot;title&quot;:&quot;MFP1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:true,&quot;multiSelection&quot;:true,&quot;members&quot;:[&quot; Green, Kevin&quot;]}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MOS]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Module_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Module_Set&quot;},&quot;title&quot;:&quot;MOS1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MRM]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;isCustomCriteria&quot;:false,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Module_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Module_Set&quot;},&quot;title&quot;:&quot;MRM1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MRT]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;isCustomCriteria&quot;:false,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Module_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Module_Set&quot;},&quot;title&quot;:&quot;MRT1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.FZ_OPERATOR]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;isCustomCriteria&quot;:false,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Module_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Module_Set&quot;},&quot;title&quot;:&quot;FZ_OPERATOR1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location.location_cd]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;isCustomCriteria&quot;:false,&quot;collapsed&quot;:true,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Module_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Module_Set&quot;},&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true},&quot;title&quot;:&quot;location_cd&quot;},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;}],&quot;isMaskedResult&quot;:true,&quot;format&quot;:&quot;json&quot;,&quot;widget&quot;:&quot;5b74896e2829172e7c3ccf77;&quot;,&quot;dashboard&quot;:&quot;5b74896e2829172e7c3ccf76;TH-Module&quot;,&quot;queryGuid&quot;:&quot;FE857-DD0B-4CFF-FA6B-4193-DEF2-6CA1-985D-6&quot;,&quot;offset&quot;:0,&quot;count&quot;:50000}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/datasources/TH-Module_Set/jaql</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+                </elementProp>
+                <elementProp name="Origin" elementType="Header">
+                  <stringProp name="Header.name">Origin</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com</stringProp>
+                </elementProp>
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">218</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+            <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="Gaussian Random Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">${gaussianTimerDelay}</stringProp>
+              <stringProp name="RandomTimer.range">${gaussianTimerDeviation}</stringProp>
+            </GaussianRandomTimer>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="TH_PTS_Log" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Module_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Module_Set&quot;},&quot;metadata&quot;:[{&quot;jaql&quot;:{&quot;type&quot;:&quot;measure&quot;,&quot;formula&quot;:&quot;CASE\nWHEN [3797F-1CC]=0 and [F4002-823]=1 THEN [A7012-E77]\nWHEN [3797F-1CC]=0 AND [F4002-823]&gt;1 THEN 0/0\nELSE [1D0EB-F8E]/[3797F-1CC]\nEND&quot;,&quot;context&quot;:{&quot;[A7012-E77]&quot;:{&quot;dim&quot;:&quot;[v_module_summary.completion_percent]&quot;,&quot;datatype&quot;:&quot;numeric&quot;,&quot;agg&quot;:&quot;sum&quot;,&quot;title&quot;:&quot;Total completion_percent&quot;},&quot;[F4002-823]&quot;:{&quot;dim&quot;:&quot;[v_location.location_id]&quot;,&quot;datatype&quot;:&quot;numeric&quot;,&quot;merged&quot;:true,&quot;agg&quot;:&quot;count&quot;,&quot;title&quot;:&quot;# of unique location_id&quot;},&quot;[1D0EB-F8E]&quot;:{&quot;dim&quot;:&quot;[v_module_summary.course_completed]&quot;,&quot;datatype&quot;:&quot;numeric&quot;,&quot;agg&quot;:&quot;sum&quot;,&quot;title&quot;:&quot;Total course_completed&quot;},&quot;[3797F-1CC]&quot;:{&quot;dim&quot;:&quot;[v_module_summary.course_required]&quot;,&quot;datatype&quot;:&quot;numeric&quot;,&quot;agg&quot;:&quot;sum&quot;,&quot;title&quot;:&quot;Total course_required&quot;}},&quot;title&quot;:&quot;PTS&quot;},&quot;format&quot;:{&quot;mask&quot;:{&quot;decimals&quot;:&quot;auto&quot;,&quot;percent&quot;:true},&quot;color&quot;:{&quot;type&quot;:&quot;color&quot;,&quot;color&quot;:&quot;#0071CE&quot;}},&quot;source&quot;:&quot;value&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_lang_text_program.text_cd]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;filter&quot;:{&quot;explicit&quot;:true,&quot;multiSelection&quot;:true,&quot;members&quot;:[&quot;LookProgram.name.PTS&quot;]},&quot;collapsed&quot;:false,&quot;title&quot;:&quot;text_cd&quot;},&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_module_summary.asofdate (Calendar)]&quot;,&quot;datatype&quot;:&quot;datetime&quot;,&quot;merged&quot;:true,&quot;level&quot;:&quot;days&quot;,&quot;collapsed&quot;:true,&quot;isCustomCriteria&quot;:true,&quot;title&quot;:&quot;RasDateRange&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Module_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Module_Set&quot;},&quot;filter&quot;:{&quot;from&quot;:&quot;2017-09-05&quot;,&quot;to&quot;:&quot;2018-09-05&quot;}},&quot;disabled&quot;:false,&quot;isCascading&quot;:false,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.VP_OPS]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Module_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Module_Set&quot;},&quot;title&quot;:&quot;VP_OPS1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.DIR_OPS]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Module_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Module_Set&quot;},&quot;title&quot;:&quot;DIR_OPS1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MFP]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;isCustomCriteria&quot;:false,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Module_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Module_Set&quot;},&quot;title&quot;:&quot;MFP1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:true,&quot;multiSelection&quot;:true,&quot;members&quot;:[&quot; Green, Kevin&quot;]}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MOS]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Module_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Module_Set&quot;},&quot;title&quot;:&quot;MOS1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MRM]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;isCustomCriteria&quot;:false,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Module_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Module_Set&quot;},&quot;title&quot;:&quot;MRM1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.MRT]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;isCustomCriteria&quot;:false,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Module_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Module_Set&quot;},&quot;title&quot;:&quot;MRT1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location_roles.FZ_OPERATOR]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;collapsed&quot;:true,&quot;panel&quot;:&quot;scope&quot;,&quot;isCustomCriteria&quot;:false,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Module_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Module_Set&quot;},&quot;title&quot;:&quot;FZ_OPERATOR1&quot;,&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true}},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;},{&quot;jaql&quot;:{&quot;dim&quot;:&quot;[v_location.location_cd]&quot;,&quot;datatype&quot;:&quot;text&quot;,&quot;merged&quot;:true,&quot;isCustomCriteria&quot;:false,&quot;collapsed&quot;:true,&quot;datasource&quot;:{&quot;title&quot;:&quot;TH-Module_Set&quot;,&quot;fullname&quot;:&quot;Set/TH-Module_Set&quot;},&quot;filter&quot;:{&quot;explicit&quot;:false,&quot;multiSelection&quot;:true,&quot;all&quot;:true},&quot;title&quot;:&quot;location_cd&quot;},&quot;disabled&quot;:false,&quot;isCascading&quot;:true,&quot;panel&quot;:&quot;scope&quot;}],&quot;isMaskedResult&quot;:true,&quot;format&quot;:&quot;json&quot;,&quot;widget&quot;:&quot;5b748ba1b1417d0f70fe6469;&quot;,&quot;dashboard&quot;:&quot;5b74896e2829172e7c3ccf76;TH-Module&quot;,&quot;queryGuid&quot;:&quot;6853F-AEF4-9011-8059-EE15-991B-D404-D272-E&quot;,&quot;offset&quot;:0,&quot;count&quot;:50000}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/datasources/TH-Module_Set/jaql</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+                </elementProp>
+                <elementProp name="Origin" elementType="Header">
+                  <stringProp name="Header.name">Origin</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com</stringProp>
+                </elementProp>
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">3</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="logs/timer" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;dashboard&quot;:{&quot;oid&quot;:&quot;5b74896e2829172e7c3ccf76&quot;,&quot;title&quot;:&quot;TH-Module&quot;,&quot;logStartLoad&quot;:1536725585638,&quot;logEndLoad&quot;:1536725587336,&quot;logStartRefresh&quot;:0,&quot;logEndRefresh&quot;:0,&quot;widgets&quot;:[{&quot;oid&quot;:&quot;5b74896e2829172e7c3ccf77&quot;,&quot;type&quot;:&quot;indicator&quot;,&quot;title&quot;:&quot;&quot;,&quot;logStartLoad&quot;:1536725585764,&quot;logEndLoad&quot;:1536725586824,&quot;logStartQuery&quot;:1536725586413,&quot;logEndQuery&quot;:1536725586803,&quot;logStartRender&quot;:1536725586808,&quot;logEndRender&quot;:1536725586825},{&quot;oid&quot;:&quot;5b748ba1b1417d0f70fe6469&quot;,&quot;type&quot;:&quot;indicator&quot;,&quot;title&quot;:&quot;&quot;,&quot;logStartLoad&quot;:1536725585818,&quot;logEndLoad&quot;:1536725587308,&quot;logStartQuery&quot;:1536725586426,&quot;logEndQuery&quot;:1536725587305,&quot;logStartRender&quot;:1536725587305,&quot;logEndRender&quot;:1536725587309},{&quot;oid&quot;:&quot;5b748bb8b1417d0f70fe6474&quot;,&quot;type&quot;:&quot;richtexteditor&quot;,&quot;title&quot;:&quot;RICHTEXT_MAIN.TITLE&quot;,&quot;logStartLoad&quot;:1536725585800,&quot;logEndLoad&quot;:1536725586457,&quot;logStartQuery&quot;:0,&quot;logEndQuery&quot;:0,&quot;logStartRender&quot;:1536725586414,&quot;logEndRender&quot;:1536725586426},{&quot;oid&quot;:&quot;5b74899d2829172e7c3ccfdd&quot;,&quot;type&quot;:&quot;richtexteditor&quot;,&quot;title&quot;:&quot;RICHTEXT_MAIN.TITLE&quot;,&quot;logStartLoad&quot;:1536725585720,&quot;logEndLoad&quot;:1536725586451,&quot;logStartQuery&quot;:0,&quot;logEndQuery&quot;:0,&quot;logStartRender&quot;:1536725586387,&quot;logEndRender&quot;:1536725586411}]}}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${BASE_URL_1}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">api/v1/logs/timer</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+                </elementProp>
+                <elementProp name="Origin" elementType="Header">
+                  <stringProp name="Header.name">Origin</stringProp>
+                  <stringProp name="Header.value">https://sisense-rbi-stage.alchemy-eng.com</stringProp>
+                </elementProp>
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">910</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="Gaussian Random Timer" enabled="true">
+            <stringProp name="ConstantTimer.delay">${gaussianTimerDelay}</stringProp>
+            <stringProp name="RandomTimer.range">${gaussianTimerDeviation}</stringProp>
+          </GaussianRandomTimer>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

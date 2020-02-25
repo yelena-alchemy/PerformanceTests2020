@@ -1,0 +1,70 @@
+2019-07-29 12:43:48,751 INFO o.a.j.u.JMeterUtils: Setting Locale to en_CA
+2019-07-29 12:43:48,780 INFO o.a.j.JMeter: Loading user properties from: /Users/olgajoloud/apache-jmeter-5.1.1/bin/user.properties
+2019-07-29 12:43:48,781 INFO o.a.j.JMeter: Loading system properties from: /Users/olgajoloud/apache-jmeter-5.1.1/bin/system.properties
+2019-07-29 12:43:48,785 INFO o.a.j.JMeter: Copyright (c) 1998-2019 The Apache Software Foundation
+2019-07-29 12:43:48,786 INFO o.a.j.JMeter: Version 5.1.1 r1855137
+2019-07-29 12:43:48,786 INFO o.a.j.JMeter: java.version=11.0.4
+2019-07-29 12:43:48,786 INFO o.a.j.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM
+2019-07-29 12:43:48,786 INFO o.a.j.JMeter: os.name=Mac OS X
+2019-07-29 12:43:48,786 INFO o.a.j.JMeter: os.arch=x86_64
+2019-07-29 12:43:48,786 INFO o.a.j.JMeter: os.version=10.14.5
+2019-07-29 12:43:48,786 INFO o.a.j.JMeter: file.encoding=UTF-8
+2019-07-29 12:43:48,786 INFO o.a.j.JMeter: java.awt.headless=true
+2019-07-29 12:43:48,786 INFO o.a.j.JMeter: Max memory     =4294967296
+2019-07-29 12:43:48,786 INFO o.a.j.JMeter: Available Processors =12
+2019-07-29 12:43:48,793 INFO o.a.j.JMeter: Default Locale=English (Canada)
+2019-07-29 12:43:48,793 INFO o.a.j.JMeter: JMeter  Locale=English (Canada)
+2019-07-29 12:43:48,793 INFO o.a.j.JMeter: JMeterHome=/Users/olgajoloud/apache-jmeter-5.1.1
+2019-07-29 12:43:48,793 INFO o.a.j.JMeter: user.dir  =/Users/olgajoloud/PerformanceTests-OnTrack/Jmeter_Tests/Tapp Migration/Agenda/Rouitines/MWT
+2019-07-29 12:43:48,794 INFO o.a.j.JMeter: PWD       =/Users/olgajoloud/PerformanceTests-OnTrack/Jmeter_Tests/Tapp Migration/Agenda/Rouitines/MWT
+2019-07-29 12:43:48,816 INFO o.a.j.JMeter: IP: 192.168.111.94 Name: OlgaJ-MBP.local FullName: 192.168.111.94
+2019-07-29 12:43:48,822 INFO o.a.j.s.FileServer: Default base='/Users/olgajoloud/PerformanceTests-OnTrack/Jmeter_Tests/Tapp Migration/Agenda/Rouitines/MWT'
+2019-07-29 12:43:48,823 INFO o.a.j.s.FileServer: Set new base='/Users/olgajoloud/PerformanceTests-OnTrack/Jmeter_Tests/Tapp Migration/Agenda/Rouitines/MWT'
+2019-07-29 12:43:48,943 INFO o.a.j.s.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2
+2019-07-29 12:43:48,960 INFO o.a.j.s.SaveService: Using SaveService properties version 5.0
+2019-07-29 12:43:48,964 INFO o.a.j.s.SaveService: Using SaveService properties file encoding UTF-8
+2019-07-29 12:43:48,966 INFO o.a.j.s.SaveService: Loading file: AgendaUpdate.jmx
+2019-07-29 12:43:49,009 INFO o.a.j.p.h.c.CookieManager: Settings: Delete null: true Check: true Allow variable: true Save: false Prefix: COOKIE_
+2019-07-29 12:43:49,013 INFO o.a.j.p.h.c.CacheManager: Will only cache the following methods: [GET]
+2019-07-29 12:43:49,030 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2019-07-29 12:43:49,030 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2019-07-29 12:43:49,030 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2019-07-29 12:43:49,030 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2019-07-29 12:43:49,030 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser
+2019-07-29 12:43:49,030 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser
+2019-07-29 12:43:49,103 INFO o.a.j.JMeter: Creating summariser <summary>
+2019-07-29 12:43:49,108 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2019-07-29 12:43:49,114 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2019-07-29 12:43:49,114 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2019-07-29 12:43:49,120 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must contain the string: '.functions.'
+2019-07-29 12:43:49,120 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must not contain the string: '.gui.'
+2019-07-29 12:43:49,498 INFO o.a.j.JMeter: Running test (1564418629498)
+2019-07-29 12:43:49,512 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group
+2019-07-29 12:43:49,513 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group Thread Group.
+2019-07-29 12:43:49,513 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2019-07-29 12:43:49,513 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
+2019-07-29 12:43:49,518 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2019-07-29 12:43:49,518 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2019-07-29 12:43:49,527 INFO o.a.j.s.SampleResult: Note: Sample TimeStamps are START times
+2019-07-29 12:43:49,527 INFO o.a.j.s.SampleResult: sampleresult.default.encoding is set to ISO-8859-1
+2019-07-29 12:43:49,527 INFO o.a.j.s.SampleResult: sampleresult.useNanoTime=true
+2019-07-29 12:43:49,527 INFO o.a.j.s.SampleResult: sampleresult.nanoThreadSleep=5000
+2019-07-29 12:43:49,529 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-1
+2019-07-29 12:43:49,530 INFO o.a.j.s.FileServer: Stored: testUsers.csv
+2019-07-29 12:43:49,542 INFO o.a.j.p.h.s.HTTPHCAbstractImpl: Local host = OlgaJ-MBP.local
+2019-07-29 12:43:49,547 INFO o.a.j.p.h.s.HTTPHC4Impl: HTTP request retry count = 0
+2019-07-29 12:43:49,605 INFO o.a.j.p.h.s.h.LazyLayeredConnectionSocketFactory: Setting up HTTPS TrustAll Socket Factory
+2019-07-29 12:43:49,610 INFO o.a.j.u.JsseSSLManager: Using default SSL protocol: TLS
+2019-07-29 12:43:49,610 INFO o.a.j.u.JsseSSLManager: SSL session context: per-thread
+2019-07-29 12:43:49,735 INFO o.a.j.u.SSLManager: JmeterKeyStore Location:  type JKS
+2019-07-29 12:43:49,738 INFO o.a.j.u.SSLManager: KeyStore created OK
+2019-07-29 12:43:49,738 WARN o.a.j.u.SSLManager: Keystore file not found, loading empty keystore
+2019-07-29 12:44:02,538 INFO o.a.j.r.Summariser: summary +      7 in 00:00:13 =    0.5/s Avg:   741 Min:   316 Max:  1603 Err:     0 (0.00%) Active: 1 Started: 1 Finished: 0
+2019-07-29 12:44:04,519 ERROR o.a.j.m.J.JSR223 PreProcessor: List returned114584900,114584901,114584902,114584903,114584904,114584905,114584906,114584907,114584908,114584909,114584910,114584911,114584912,114584913,114584914,114584927,114584928,114584929,114584930,114584931,114584932,114584933,114584934,114584935,114584936,114584937,114584938,114584939,114584940,114584941,114584949,114584951,114584954,114584957,114584915,114584916,114584917,114584918,114584919,114584920,114584921,114584922,114584923,114584924,114584925,114584926,114584942,114584943,114584944,114584945,114584946,114584947,114584948,114584950,114584952,114584953,114584955,114584956,114584958,114584959,114584959
+2019-07-29 12:44:06,089 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-1
+2019-07-29 12:44:06,090 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-1
+2019-07-29 12:44:06,091 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2019-07-29 12:44:06,091 INFO o.a.j.s.FileServer: Close: testUsers.csv
+2019-07-29 12:44:06,094 INFO o.a.j.p.h.s.ResourcesDownloader: Creating ResourcesDownloader with keepalive_inseconds : 60
+2019-07-29 12:44:06,096 INFO o.a.j.r.Summariser: summary +      3 in 00:00:04 =    0.8/s Avg:   175 Min:     0 Max:   463 Err:     1 (33.33%) Active: 0 Started: 1 Finished: 1
+2019-07-29 12:44:06,096 INFO o.a.j.r.Summariser: summary =     10 in 00:00:17 =    0.6/s Avg:   571 Min:     0 Max:  1603 Err:     1 (10.00%)

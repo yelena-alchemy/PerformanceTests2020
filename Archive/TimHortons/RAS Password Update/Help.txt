@@ -1,0 +1,5 @@
+1) Execute below script to create users in Sisense
+TH_OnTrack_RAS_Reports.jmx
+
+2) Execute below script to change password of users in Sisense to Password@1
+SiSense-ChangePWD.jmx

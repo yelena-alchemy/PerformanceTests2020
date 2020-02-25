@@ -1,0 +1,1406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1.1 r1855137">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Testplan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="Benutzer definierte Variablen" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread-Gruppe" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Schleifen-Controller (Loop Controller)" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">392</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1362062247000</longProp>
+        <longProp name="ThreadGroup.end_time">1362062247000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="RequestHelper" enabled="true"/>
+        <hashTree>
+          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="RequestHelper" enabled="true">
+            <stringProp name="BeanShellSampler.query">class RequestHelper{
+
+void createTop20Card(String userId, String courseCd, String locationId){
+	long createDateTime=((java.time.LocalDateTime.now().toEpochSecond(java.time.ZoneOffset.UTC))*1000);
+	long expiryDateTime=((java.time.LocalDateTime.now().plusMonths(1).toEpochSecond(java.time.ZoneOffset.UTC))*1000);
+	String courseName= &quot;Test_&quot; + createDateTime;
+	String payload=&quot;\&quot;@class\&quot;: \&quot;frameworks.card.data.LocationCard\&quot;,&quot; 
+	+ &quot;\&quot;cardSource\&quot;: \&quot;LearningCentre\&quot;,&quot;
+	+ &quot;\&quot;auditProps\&quot;: {&quot;
+	+ &quot;\&quot;createdDateTime\&quot;:&quot; + createDateTime +&quot;,&quot;
+	+ &quot;\&quot;createdUserId\&quot;: 1,&quot;
+	+ &quot;\&quot;updatedDateTime\&quot;:&quot; +  createDateTime +&quot;,&quot;
+	+ &quot;\&quot;updatedUserId\&quot;: 1 },&quot;
+	+ &quot;\&quot;expiryDateTime\&quot;:&quot; + expiryDateTime + &quot;,&quot;
+	+ &quot;\&quot;visibility\&quot;: [\&quot;ALL\&quot;], \&quot;payload\&quot;:{&quot;
+	+ &quot;\&quot;@class\&quot;:\&quot;frameworks.card.data.payload.lms.Top20CourseCompletionPayload\&quot;,&quot;
+	+ &quot;\&quot;courseCd\&quot;:\&quot;TH133\&quot;,&quot;
+	+ &quot;\&quot;name\&quot;:\&quot;&quot; + courseName + &quot;\&quot;,&quot;
+	+ &quot;\&quot;activeDate\&quot;:&quot; + createDateTime + &quot;,&quot;
+     + &quot;\&quot;version\&quot;:1,&quot;
+     + &quot;\&quot;programCd\&quot;:\&quot;AFTIMS\&quot;,&quot;
+     + &quot;\&quot;programCompletionPct\&quot;:0,&quot;
+     + &quot;\&quot;userId\&quot;:&quot; + userId + &quot;},&quot;
+     + &quot;\&quot;mediaLinks\&quot;: [],&quot;
+     + &quot;\&quot;locationId\&quot;:&quot; + locationId + &quot;,&quot;
+     + &quot;\&quot;payloadType\&quot;: \&quot;frameworks.card.data.payload.hospitality.GuestFeedbackOverallPayload\&quot;,&quot;
+     + &quot;\&quot;likeCount\&quot;: 0,&quot;
+     + &quot;\&quot;commentCount\&quot;: 0,&quot;
+     + &quot;\&quot;commentable\&quot;:&quot; + false + &quot;,&quot;
+     + &quot;\&quot;likeable\&quot;:&quot; +  false + &quot;,&quot;
+     + &quot;\&quot;canDelete\&quot;:&quot; + false + &quot;,&quot;
+     + &quot;\&quot;hasLiked\&quot;:&quot; + false;
+    
+  
+     log.error(payload);
+     vars.put(&quot;PAYLOAD&quot;, payload);
+     
+	
+	}
+
+	return this;
+};
+
+bsh.shared.RequestHelper= new RequestHelper();
+</stringProp>
+            <stringProp name="BeanShellSampler.filename"></stringProp>
+            <stringProp name="BeanShellSampler.parameters"></stringProp>
+            <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
+          </BeanShellSampler>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/home/" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/home/</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.implementation">Java</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Connection</stringProp>
+                <stringProp name="Header.value">keep-alive</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Pragma</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Cache-Control</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Upgrade-Insecure-Requests</stringProp>
+                <stringProp name="Header.value">1</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                <stringProp name="Header.value">navigate</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-User</stringProp>
+                <stringProp name="Header.value">?1</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                <stringProp name="Header.value">same-origin</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en,en-US;q=0.9</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/auth/oauth/token" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="username" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${adminName}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">username</stringProp>
+              </elementProp>
+              <elementProp name="password" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${adminPassword}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">password</stringProp>
+              </elementProp>
+              <elementProp name="client_id" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">ui.ontrack.frameworks.ca</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">client_id</stringProp>
+              </elementProp>
+              <elementProp name="grant_type" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">password</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">grant_type</stringProp>
+              </elementProp>
+              <elementProp name="scope" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">read</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">scope</stringProp>
+              </elementProp>
+              <elementProp name="_l" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${lang}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">_l</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/auth/oauth/token</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.implementation">Java</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                <stringProp name="Header.value">cors</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Connection</stringProp>
+                <stringProp name="Header.value">keep-alive</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Length</stringProp>
+                <stringProp name="Header.value">106</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Pragma</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Host</stringProp>
+                <stringProp name="Header.value">${serverName}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/x-www-form-urlencoded</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Cache-Control</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">https://${serverName}/login/</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                <stringProp name="Header.value">same-origin</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extract access token" enabled="true">
+            <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+            <stringProp name="RegexExtractor.refname">accessToken</stringProp>
+            <stringProp name="RegexExtractor.regex">access_token&quot;:&quot;(.*?)&quot;</stringProp>
+            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.default"></stringProp>
+            <stringProp name="RegexExtractor.match_number">1</stringProp>
+          </RegexExtractor>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames"></stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs"></stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ReadMe" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="_l" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${lang}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">_l</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/svc/service/user/me</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.implementation">Java</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">service/readMe</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extract user id" enabled="true">
+            <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+            <stringProp name="RegexExtractor.refname">userId</stringProp>
+            <stringProp name="RegexExtractor.regex">&quot;id&quot;:(.*?),</stringProp>
+            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.default"></stringProp>
+            <stringProp name="RegexExtractor.match_number">1</stringProp>
+            <boolProp name="RegexExtractor.default_empty_value">true</boolProp>
+          </RegexExtractor>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract HomeLocation " enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">homeLocation</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.._homeLocationCd</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">0</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="homeLocationCD" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">homeLocationCD</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$..homeLocation</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">0</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract Dags" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">dags</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$..dags[0]</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${accessToken}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <DebugPostProcessor guiclass="TestBeanGUI" testclass="DebugPostProcessor" testname="Debug PostProcessor" enabled="true">
+            <boolProp name="displayJMeterProperties">false</boolProp>
+            <boolProp name="displayJMeterVariables">true</boolProp>
+            <boolProp name="displaySamplerProperties">true</boolProp>
+            <boolProp name="displaySystemProperties">false</boolProp>
+          </DebugPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Calendar" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="_l" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">en</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">_l</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/svc/service/location/calendar</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.implementation">Java</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${accessToken}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="TIMER" enabled="true">
+            <stringProp name="ConstantTimer.delay">${standardDelay}</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="SearchUser" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/svc/service/user?_d=${dag}&amp;_l=${lang}&amp;_u=${userId}&amp;page=1&amp;results=20&amp;statusCd=A&amp;username=${userName}</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.implementation">Java</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${accessToken}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">&quot;CHROME&quot;</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="TIMER" enabled="true">
+            <stringProp name="ConstantTimer.delay">${standardDelay}</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+          <DebugPostProcessor guiclass="TestBeanGUI" testclass="DebugPostProcessor" testname="Debug PostProcessor" enabled="true">
+            <boolProp name="displayJMeterProperties">false</boolProp>
+            <boolProp name="displayJMeterVariables">true</boolProp>
+            <boolProp name="displaySamplerProperties">true</boolProp>
+            <boolProp name="displaySystemProperties">false</boolProp>
+          </DebugPostProcessor>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract User Id" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">id</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$..id</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract User DAG" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">activeDag</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$..activeDag</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="SearchUserTimHorton" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/svc/service/user?_d=${dag}&amp;_l=${lang}&amp;_u=${userId}&amp;dag=10&amp;page=1&amp;results=300&amp;statusCd=A</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.implementation">Java</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${accessToken}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">&quot;CHROME&quot;</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="TIMER" enabled="true">
+            <stringProp name="ConstantTimer.delay">${standardDelay}</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+          <DebugPostProcessor guiclass="TestBeanGUI" testclass="DebugPostProcessor" testname="Debug PostProcessor" enabled="true">
+            <boolProp name="displayJMeterProperties">false</boolProp>
+            <boolProp name="displayJMeterVariables">true</boolProp>
+            <boolProp name="displaySamplerProperties">true</boolProp>
+            <boolProp name="displaySystemProperties">false</boolProp>
+          </DebugPostProcessor>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract User Id" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">id</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$..id</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract User DAG" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">activeDag</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$..activeDag</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="SearchUsersPerLocation" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/svc/service/user?_d=${dags}&amp;_l=${lang}&amp;_u=${userId}&amp;dag=${dag}&amp;location=${location}&amp;results=80&amp;statusCd=A</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.implementation">Java</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${accessToken}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">&quot;CHROME&quot;</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="TIMER" enabled="true">
+            <stringProp name="ConstantTimer.delay">${standardDelay}</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+          <DebugPostProcessor guiclass="TestBeanGUI" testclass="DebugPostProcessor" testname="Debug PostProcessor" enabled="true">
+            <boolProp name="displayJMeterProperties">false</boolProp>
+            <boolProp name="displayJMeterVariables">true</boolProp>
+            <boolProp name="displaySamplerProperties">true</boolProp>
+            <boolProp name="displaySystemProperties">false</boolProp>
+          </DebugPostProcessor>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">nameLast</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$..nameLast</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ApproveCoursesBK" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">[{&quot;courseCd&quot;:&quot;BK001&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 1 - The Basics&quot;,&quot;name&quot;:&quot;Welcome to Burger King&lt;sup&gt;®&lt;/sup&gt;&quot;,&quot;applyToTrainingInAction&quot;:true,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK002&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 1 - The Basics&quot;,&quot;name&quot;:&quot;&lt;i&gt;BK&lt;/i&gt;&lt;sup&gt;®&lt;/sup&gt;LINK&quot;,&quot;applyToTrainingInAction&quot;:true,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK003&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 1 - The Basics&quot;,&quot;name&quot;:&quot;We C.A.R.E.&quot;,&quot;applyToTrainingInAction&quot;:true,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK004&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 1 - The Basics&quot;,&quot;name&quot;:&quot;Hand Washing&quot;,&quot;applyToTrainingInAction&quot;:true,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK005&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 1 - The Basics&quot;,&quot;name&quot;:&quot;Serving Safe Food&quot;,&quot;applyToTrainingInAction&quot;:true,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK006&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 1 - The Basics&quot;,&quot;name&quot;:&quot;Clean and Safe Principles&quot;,&quot;applyToTrainingInAction&quot;:true,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK007&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 1 - The Basics&quot;,&quot;name&quot;:&quot;Be Safe&quot;,&quot;applyToTrainingInAction&quot;:true,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK008&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2 - Preparing Product&quot;,&quot;name&quot;:&quot;General Preparation Principles&quot;,&quot;applyToTrainingInAction&quot;:true,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK009&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2 - Preparing Product&quot;,&quot;name&quot;:&quot;Fresh and Ready Product Holding System&quot;,&quot;applyToTrainingInAction&quot;:true,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK010&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2 - Preparing Product&quot;,&quot;name&quot;:&quot;Hot Product Holding&quot;,&quot;applyToTrainingInAction&quot;:true,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK011&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2 - Preparing Product&quot;,&quot;name&quot;:&quot;Condiment Preparation - Sandwiches&quot;,&quot;applyToTrainingInAction&quot;:true,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK012&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2 - Preparing Product&quot;,&quot;name&quot;:&quot;Using the Broiler - Duke&quot;,&quot;applyToTrainingInAction&quot;:true,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK014&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2 - Preparing Product&quot;,&quot;name&quot;:&quot;Using the Fryer&quot;,&quot;applyToTrainingInAction&quot;:true,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK015&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 3 - Building Products&quot;,&quot;name&quot;:&quot;Wraps, Marking, and Packaging&quot;,&quot;applyToTrainingInAction&quot;:true,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK016&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 3 - Building Products&quot;,&quot;name&quot;:&quot;Sandwiches&quot;,&quot;applyToTrainingInAction&quot;:true,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK017&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 3 - Building Products&quot;,&quot;name&quot;:&quot;Beverages&quot;,&quot;applyToTrainingInAction&quot;:true,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK018&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 3 - Building Products&quot;,&quot;name&quot;:&quot;Desserts&quot;,&quot;applyToTrainingInAction&quot;:true,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK038&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 3 - Building Products&quot;,&quot;name&quot;:&quot;Breakfast&quot;,&quot;applyToTrainingInAction&quot;:true,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK019&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 4 - Cleanliness&quot;,&quot;name&quot;:&quot;Restroom Zone&quot;,&quot;applyToTrainingInAction&quot;:true,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK020&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 4 - Cleanliness&quot;,&quot;name&quot;:&quot;Dining Room Zone&quot;,&quot;applyToTrainingInAction&quot;:true,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK021&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 4 - Cleanliness&quot;,&quot;name&quot;:&quot;Kitchen Zone&quot;,&quot;applyToTrainingInAction&quot;:true,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK022&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 4 - Cleanliness&quot;,&quot;name&quot;:&quot;Exterior Zone&quot;,&quot;applyToTrainingInAction&quot;:true,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK024&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 5 - Operational Excellence&quot;,&quot;name&quot;:&quot;Own the Guest Experience&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK023&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 5 - Operational Excellence&quot;,&quot;name&quot;:&quot;Sales and Service Leader&quot;,&quot;applyToTrainingInAction&quot;:true,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK049&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Basics&quot;,&quot;name&quot;:&quot;GUEST FEEDBACK AND RECOVERY&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BKL28&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Regional Modules&quot;,&quot;name&quot;:&quot;Crispy Chicken Sandwich &quot;,&quot;applyToTrainingInAction&quot;:true,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BKL31&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Regional Modules&quot;,&quot;name&quot;:&quot;Roadhouse Sandwiches &quot;,&quot;applyToTrainingInAction&quot;:true,&quot;applyToCourse&quot;:true}]</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/svc/service/lms/learners/${id}/courses/force?_d=1&amp;_l=${lang}&amp;_u=${userId}&amp;reason=test&amp;reasonCd=ADMIN&amp;userId=${userId}</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.implementation">Java</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${accessToken}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="TIMER" enabled="true">
+            <stringProp name="ConstantTimer.delay">${standardDelay}</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ApproveCoursesTHTestStage1" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">[{&quot;courseCd&quot;:&quot;47&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;The Basics&quot;,&quot;name&quot;:&quot;Welcome to Team Tim Hortons&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;49&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;The Basics&quot;,&quot;name&quot;:&quot;Workplace Safety&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;50&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;The Basics&quot;,&quot;name&quot;:&quot;Understanding Food Safety&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;53&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;The Basics&quot;,&quot;name&quot;:&quot;The Exceptional Guest Experience&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;54&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;The Basics&quot;,&quot;name&quot;:&quot;Guest Interactive Scenarios&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;62&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;The Basics&quot;,&quot;name&quot;:&quot;Restaurant Security&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;64&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;The Basics&quot;,&quot;name&quot;:&quot;Safe Food Handling&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;65&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;The Basics&quot;,&quot;name&quot;:&quot;Slips, Trips and Falls&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;47&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;The Basics&quot;,&quot;name&quot;:&quot;Welcome to Team Tim Hortons&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;49&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;The Basics&quot;,&quot;name&quot;:&quot;Workplace Safety&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;50&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;The Basics&quot;,&quot;name&quot;:&quot;Understanding Food Safety&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;53&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;The Basics&quot;,&quot;name&quot;:&quot;The Exceptional Guest Experience&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;54&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;The Basics&quot;,&quot;name&quot;:&quot;Guest Interactive Scenarios&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;62&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;The Basics&quot;,&quot;name&quot;:&quot;Restaurant Security&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;64&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;The Basics&quot;,&quot;name&quot;:&quot;Safe Food Handling&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;65&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;The Basics&quot;,&quot;name&quot;:&quot;Slips, Trips and Falls&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true}]</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/svc/service/lms/learners/${id}/courses/force?_d=${activeDag}&amp;_l=${lang}&amp;_u=${userId}&amp;reason=test&amp;reasonCd=ADMIN&amp;userId=${userId}</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.implementation">Java</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${accessToken}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="TIMER" enabled="true">
+            <stringProp name="ConstantTimer.delay">${standardDelay}</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ApproveCoursesTHSTGStage1" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">[{&quot;courseCd&quot;:&quot;47&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 1: Orientation&quot;,&quot;name&quot;:&quot;Welcome to Team Tim Hortons&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;49&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 1: Orientation&quot;,&quot;name&quot;:&quot;Workplace Safety&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;50&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 1: Orientation&quot;,&quot;name&quot;:&quot;Understanding Food Safety&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;52&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 1: Orientation&quot;,&quot;name&quot;:&quot;Front Counter Service&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;61&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 1: Orientation&quot;,&quot;name&quot;:&quot;Payments&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;72&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 1: Orientation&quot;,&quot;name&quot;:&quot;Art of Coffee&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;TH31&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 1: Orientation&quot;,&quot;name&quot;:&quot;Hand Washing&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true}]</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/svc/service/lms/learners/${id}/courses/force?_d=${activeDag}&amp;_l=${lang}&amp;_u=${userId}&amp;reason=test&amp;reasonCd=ADMIN&amp;userId=${userId}</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.implementation">Java</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${accessToken}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="TIMER" enabled="true">
+            <stringProp name="ConstantTimer.delay">${standardDelay}</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Re-ApproveCoursesTHSTGStage1" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">[{&quot;courseCd&quot;:&quot;47&quot;,&quot;completionCd&quot;:&quot;NOT_STARTED&quot;,&quot;topic&quot;:&quot;Stage 1: Orientation&quot;,&quot;name&quot;:&quot;Welcome to Team Tim Hortons&quot;,&quot;applyToTrainingInAction&quot;:true,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;49&quot;,&quot;completionCd&quot;:&quot;NOT_STARTED&quot;,&quot;topic&quot;:&quot;Stage 1: Orientation&quot;,&quot;name&quot;:&quot;Workplace Safety&quot;,&quot;applyToTrainingInAction&quot;:true,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;50&quot;,&quot;completionCd&quot;:&quot;NOT_STARTED&quot;,&quot;topic&quot;:&quot;Stage 1: Orientation&quot;,&quot;name&quot;:&quot;Understanding Food Safety&quot;,&quot;applyToTrainingInAction&quot;:true,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;52&quot;,&quot;completionCd&quot;:&quot;NOT_STARTED&quot;,&quot;topic&quot;:&quot;Stage 1: Orientation&quot;,&quot;name&quot;:&quot;Front Counter Service&quot;,&quot;applyToTrainingInAction&quot;:true,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;61&quot;,&quot;completionCd&quot;:&quot;NOT_STARTED&quot;,&quot;topic&quot;:&quot;Stage 1: Orientation&quot;,&quot;name&quot;:&quot;Payments&quot;,&quot;applyToTrainingInAction&quot;:true,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;TH111&quot;,&quot;completionCd&quot;:&quot;NOT_STARTED&quot;,&quot;topic&quot;:&quot;Stage 1: Orientation&quot;,&quot;name&quot;:&quot;Tim Hortons Coffee&quot;,&quot;applyToTrainingInAction&quot;:true,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;TH31&quot;,&quot;completionCd&quot;:&quot;NOT_STARTED&quot;,&quot;topic&quot;:&quot;Stage 1: Orientation&quot;,&quot;name&quot;:&quot;Hand Washing&quot;,&quot;applyToTrainingInAction&quot;:true,&quot;applyToCourse&quot;:true}]</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/svc/service/lms/learners/${id}/courses/force?_d=${activeDag}&amp;_l=${lang}&amp;_u=${userId}&amp;reason=test&amp;reasonCd=ADMIN&amp;userId=${userId}</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.implementation">Java</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${accessToken}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="TIMER" enabled="true">
+            <stringProp name="ConstantTimer.delay">${standardDelay}</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ApproveCoursesBKTESTStage1" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">[{&quot;courseCd&quot;:&quot;BK001&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;The Basics&quot;,&quot;name&quot;:&quot;Welcome to Burger King&lt;sup&gt;®&lt;/sup&gt;&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK002&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;The Basics&quot;,&quot;name&quot;:&quot;&lt;i&gt;BK&lt;/i&gt;&lt;sup&gt;®&lt;/sup&gt;LINK&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK004&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;The Basics&quot;,&quot;name&quot;:&quot;Hand Washing&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK003&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;The Basics&quot;,&quot;name&quot;:&quot;We C.A.R.E.&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK024&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;The Basics&quot;,&quot;name&quot;:&quot;Own the Guest Experience&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK005&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;The Basics&quot;,&quot;name&quot;:&quot;Serving Safe Food&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK006&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;The Basics&quot;,&quot;name&quot;:&quot;Clean and Safe Principles&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK019&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;The Basics&quot;,&quot;name&quot;:&quot;Restroom Zone&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK020&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;The Basics&quot;,&quot;name&quot;:&quot;Dining Room Zone&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK021&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;The Basics&quot;,&quot;name&quot;:&quot;Kitchen Zone&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK022&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;The Basics&quot;,&quot;name&quot;:&quot;Exterior Zone&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK007&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;The Basics&quot;,&quot;name&quot;:&quot;Be Safe&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK017&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Guest Ambassador&quot;,&quot;name&quot;:&quot;Beverages&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK017&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Front Counter Service&quot;,&quot;name&quot;:&quot;Beverages&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK017&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Expeditor&quot;,&quot;name&quot;:&quot;Beverages&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;BK017&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Drive Thru&quot;,&quot;name&quot;:&quot;Beverages&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true}]</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/svc/service/lms/learners/${id}/courses/force?_d=${activeDag}&amp;_l=${lang}&amp;_u=${userId}&amp;reason=test&amp;reasonCd=ADMIN&amp;userId=${userId}</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.implementation">Java</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${accessToken}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="TIMER" enabled="true">
+            <stringProp name="ConstantTimer.delay">${standardDelay}</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ApproveCoursesTHDEMOStage1" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/svc/service/lms/learners/${id}/courses/force?_d=${activeDag}&amp;_l=${lang}&amp;_u=${userId}&amp;reason=test&amp;reasonCd=ADMIN&amp;userId=${userId}</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.implementation">Java</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${accessToken}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="TIMER" enabled="true">
+            <stringProp name="ConstantTimer.delay">${standardDelay}</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ApproveCoursesTHTestStage2" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">[{&quot;courseCd&quot;:&quot;56&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2: Operational Execution&quot;,&quot;name&quot;:&quot;Cold Beverages&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;58&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2: Operational Execution&quot;,&quot;name&quot;:&quot;Soups and Hot Bowls&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;59&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2: Operational Execution&quot;,&quot;name&quot;:&quot;Always Fresh Baking&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;60&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2: Operational Execution&quot;,&quot;name&quot;:&quot;Hot Beverages&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;TH130&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2: Operational Execution&quot;,&quot;name&quot;:&quot;Breakfast Preparation&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;TH131&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2: Operational Execution&quot;,&quot;name&quot;:&quot;Breakfast Service&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;PL55&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2: Operational Execution&quot;,&quot;name&quot;:&quot;Wedges&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;TH79&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2: Operational Execution&quot;,&quot;name&quot;:&quot;Sandwich Preparation&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;TH80&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2: Operational Execution&quot;,&quot;name&quot;:&quot;Sandwich Service&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;TH99&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2: Operational Execution&quot;,&quot;name&quot;:&quot;Timmies Minis Pack&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;TH74&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2: Operational Execution&quot;,&quot;name&quot;:&quot;Espresso&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true}]</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/svc/service/lms/learners/${id}/courses/force?_d=${activeDag}&amp;_l=${lang}&amp;_u=${userId}&amp;reason=test&amp;reasonCd=ADMIN&amp;userId=${userId}</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.implementation">Java</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${accessToken}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="TIMER" enabled="true">
+            <stringProp name="ConstantTimer.delay">${standardDelay}</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ApproveCoursesTHSTGStage2" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">[{&quot;courseCd&quot;:&quot;56&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2: Operational Execution&quot;,&quot;name&quot;:&quot;Cold Beverages&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;58&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2: Operational Execution&quot;,&quot;name&quot;:&quot;Soups and Hot Bowls&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;59&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2: Operational Execution&quot;,&quot;name&quot;:&quot;Always Fresh Baking&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;60&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2: Operational Execution&quot;,&quot;name&quot;:&quot;Hot Beverages&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;TH130&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2: Operational Execution&quot;,&quot;name&quot;:&quot;Breakfast Preparation&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;TH131&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2: Operational Execution&quot;,&quot;name&quot;:&quot;Breakfast Service&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;PL55&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2: Operational Execution&quot;,&quot;name&quot;:&quot;Wedges&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;TH79&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2: Operational Execution&quot;,&quot;name&quot;:&quot;Sandwich Preparation&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;TH80&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2: Operational Execution&quot;,&quot;name&quot;:&quot;Sandwich Service&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;TH99&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2: Operational Execution&quot;,&quot;name&quot;:&quot;Timmies Minis Pack&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;TH74&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2: Operational Execution&quot;,&quot;name&quot;:&quot;Espresso&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true}]</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/svc/service/lms/learners/${id}/courses/force?_d=${activeDag}&amp;_l=${lang}&amp;_u=${userId}&amp;reason=test&amp;reasonCd=ADMIN&amp;userId=${userId}</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.implementation">Java</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${accessToken}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="TIMER" enabled="true">
+            <stringProp name="ConstantTimer.delay">${standardDelay}</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ApproveCoursesBKTESTtage2" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">[{&quot;courseCd&quot;:&quot;56&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2: Operational Execution&quot;,&quot;name&quot;:&quot;Cold Beverages&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;58&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2: Operational Execution&quot;,&quot;name&quot;:&quot;Soups and Hot Bowls&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;59&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2: Operational Execution&quot;,&quot;name&quot;:&quot;Always Fresh Baking&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;60&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2: Operational Execution&quot;,&quot;name&quot;:&quot;Hot Beverages&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;TH130&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2: Operational Execution&quot;,&quot;name&quot;:&quot;Breakfast Preparation&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;TH131&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2: Operational Execution&quot;,&quot;name&quot;:&quot;Breakfast Service&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;PL55&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2: Operational Execution&quot;,&quot;name&quot;:&quot;Wedges&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;TH79&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2: Operational Execution&quot;,&quot;name&quot;:&quot;Sandwich Preparation&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;TH80&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2: Operational Execution&quot;,&quot;name&quot;:&quot;Sandwich Service&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;TH99&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2: Operational Execution&quot;,&quot;name&quot;:&quot;Timmies Minis Pack&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true},{&quot;courseCd&quot;:&quot;TH74&quot;,&quot;completionCd&quot;:&quot;COMPLETED&quot;,&quot;topic&quot;:&quot;Stage 2: Operational Execution&quot;,&quot;name&quot;:&quot;Espresso&quot;,&quot;applyToTrainingInAction&quot;:false,&quot;applyToCourse&quot;:true}]</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/svc/service/lms/learners/${id}/courses/force?_d=${activeDag}&amp;_l=${lang}&amp;_u=${userId}&amp;reason=test&amp;reasonCd=ADMIN&amp;userId=${userId}</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.implementation">Java</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${accessToken}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="TIMER" enabled="true">
+            <stringProp name="ConstantTimer.delay">${standardDelay}</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename">/Users/olgajoloud/PerformanceTests-OnTrack/Jmeter_Tests/HomePage/prep/ApproveCourses_391_4.csv</stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables BK TEST" enabled="false">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="serverName" elementType="Argument">
+              <stringProp name="Argument.name">serverName</stringProp>
+              <stringProp name="Argument.value">test.bklinkglobal.com</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="password" elementType="Argument">
+              <stringProp name="Argument.name">password</stringProp>
+              <stringProp name="Argument.value">password1</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="currentDateLong" elementType="Argument">
+              <stringProp name="Argument.name">currentDateLong</stringProp>
+              <stringProp name="Argument.value">${__time()}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="todayDate" elementType="Argument">
+              <stringProp name="Argument.name">todayDate</stringProp>
+              <stringProp name="Argument.value">${__time(yyyyMMdd)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="diffFromStart.S" elementType="Argument">
+              <stringProp name="Argument.name">diffFromStart.S</stringProp>
+              <stringProp name="Argument.value">${__javaScript((java.time.LocalTime.now().getHour()-6)*60*60)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="lang" elementType="Argument">
+              <stringProp name="Argument.name">lang</stringProp>
+              <stringProp name="Argument.value">en</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="yesterdayDate" elementType="Argument">
+              <stringProp name="Argument.name">yesterdayDate</stringProp>
+              <stringProp name="Argument.value">${__dateTimeConvert(${__longSum(${__time()},-86401)},,yyyyMMdd)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="startDateLong" elementType="Argument">
+              <stringProp name="Argument.name">startDateLong</stringProp>
+              <stringProp name="Argument.value">${__javaScript((java.time.LocalDateTime.now().toEpochSecond(java.time.ZoneOffset.UTC)*1000- java.time.LocalTime.now().getHour()*3600000).toString())}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="endDateLong" elementType="Argument">
+              <stringProp name="Argument.name">endDateLong</stringProp>
+              <stringProp name="Argument.value">${__javaScript((java.time.LocalDateTime.now().toEpochSecond(java.time.ZoneOffset.UTC)*1000- java.time.LocalTime.now().getHour()*3600000+82800000).toString())}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="standardDelay" elementType="Argument">
+              <stringProp name="Argument.name">standardDelay</stringProp>
+              <stringProp name="Argument.value">300</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="dag" elementType="Argument">
+              <stringProp name="Argument.name">dag</stringProp>
+              <stringProp name="Argument.value">1</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">Burger King: 10</stringProp>
+            </elementProp>
+            <elementProp name="location" elementType="Argument">
+              <stringProp name="Argument.name">location</stringProp>
+              <stringProp name="Argument.value">1794</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">7614:16822:BK</stringProp>
+            </elementProp>
+            <elementProp name="adminName" elementType="Argument">
+              <stringProp name="Argument.name">adminName</stringProp>
+              <stringProp name="Argument.value">olga.joloud</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="adminPassword" elementType="Argument">
+              <stringProp name="Argument.name">adminPassword</stringProp>
+              <stringProp name="Argument.value">password1</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables BK STAGE" enabled="false">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="serverName" elementType="Argument">
+              <stringProp name="Argument.name">serverName</stringProp>
+              <stringProp name="Argument.value">stage.bklinkglobal.com</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="password" elementType="Argument">
+              <stringProp name="Argument.name">password</stringProp>
+              <stringProp name="Argument.value">password1</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="currentDateLong" elementType="Argument">
+              <stringProp name="Argument.name">currentDateLong</stringProp>
+              <stringProp name="Argument.value">${__time()}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="todayDate" elementType="Argument">
+              <stringProp name="Argument.name">todayDate</stringProp>
+              <stringProp name="Argument.value">${__time(yyyyMMdd)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="diffFromStart.S" elementType="Argument">
+              <stringProp name="Argument.name">diffFromStart.S</stringProp>
+              <stringProp name="Argument.value">${__javaScript((java.time.LocalTime.now().getHour()-6)*60*60)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="lang" elementType="Argument">
+              <stringProp name="Argument.name">lang</stringProp>
+              <stringProp name="Argument.value">en</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="yesterdayDate" elementType="Argument">
+              <stringProp name="Argument.name">yesterdayDate</stringProp>
+              <stringProp name="Argument.value">${__dateTimeConvert(${__longSum(${__time()},-86401)},,yyyyMMdd)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="startDateLong" elementType="Argument">
+              <stringProp name="Argument.name">startDateLong</stringProp>
+              <stringProp name="Argument.value">${__javaScript((java.time.LocalDateTime.now().toEpochSecond(java.time.ZoneOffset.UTC)*1000- java.time.LocalTime.now().getHour()*3600000).toString())}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="endDateLong" elementType="Argument">
+              <stringProp name="Argument.name">endDateLong</stringProp>
+              <stringProp name="Argument.value">${__javaScript((java.time.LocalDateTime.now().toEpochSecond(java.time.ZoneOffset.UTC)*1000- java.time.LocalTime.now().getHour()*3600000+82800000).toString())}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="standardDelay" elementType="Argument">
+              <stringProp name="Argument.name">standardDelay</stringProp>
+              <stringProp name="Argument.value">300</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="dag" elementType="Argument">
+              <stringProp name="Argument.name">dag</stringProp>
+              <stringProp name="Argument.value">1</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">Burger King: 10</stringProp>
+            </elementProp>
+            <elementProp name="location" elementType="Argument">
+              <stringProp name="Argument.name">location</stringProp>
+              <stringProp name="Argument.value">1794</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">7614:16822:BK</stringProp>
+            </elementProp>
+            <elementProp name="adminName" elementType="Argument">
+              <stringProp name="Argument.name">adminName</stringProp>
+              <stringProp name="Argument.value">olga.joloud</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="adminPassword" elementType="Argument">
+              <stringProp name="Argument.name">adminPassword</stringProp>
+              <stringProp name="Argument.value">password1</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables TH TEST" enabled="false">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="serverName" elementType="Argument">
+              <stringProp name="Argument.name">serverName</stringProp>
+              <stringProp name="Argument.value">test.timhortonstapp.com</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="password" elementType="Argument">
+              <stringProp name="Argument.name">password</stringProp>
+              <stringProp name="Argument.value">password1</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="currentDateLong" elementType="Argument">
+              <stringProp name="Argument.name">currentDateLong</stringProp>
+              <stringProp name="Argument.value">${__time()}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="todayDate" elementType="Argument">
+              <stringProp name="Argument.name">todayDate</stringProp>
+              <stringProp name="Argument.value">${__time(yyyyMMdd)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="diffFromStart.S" elementType="Argument">
+              <stringProp name="Argument.name">diffFromStart.S</stringProp>
+              <stringProp name="Argument.value">${__javaScript((java.time.LocalTime.now().getHour()-6)*60*60)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="lang" elementType="Argument">
+              <stringProp name="Argument.name">lang</stringProp>
+              <stringProp name="Argument.value">en</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="yesterdayDate" elementType="Argument">
+              <stringProp name="Argument.name">yesterdayDate</stringProp>
+              <stringProp name="Argument.value">${__dateTimeConvert(${__longSum(${__time()},-86401)},,yyyyMMdd)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="startDateLong" elementType="Argument">
+              <stringProp name="Argument.name">startDateLong</stringProp>
+              <stringProp name="Argument.value">${__javaScript((java.time.LocalDateTime.now().toEpochSecond(java.time.ZoneOffset.UTC)*1000- java.time.LocalTime.now().getHour()*3600000).toString())}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="endDateLong" elementType="Argument">
+              <stringProp name="Argument.name">endDateLong</stringProp>
+              <stringProp name="Argument.value">${__javaScript((java.time.LocalDateTime.now().toEpochSecond(java.time.ZoneOffset.UTC)*1000- java.time.LocalTime.now().getHour()*3600000+82800000).toString())}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="standardDelay" elementType="Argument">
+              <stringProp name="Argument.name">standardDelay</stringProp>
+              <stringProp name="Argument.value">300</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="dag" elementType="Argument">
+              <stringProp name="Argument.name">dag</stringProp>
+              <stringProp name="Argument.value">1</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">Burger King: 10</stringProp>
+            </elementProp>
+            <elementProp name="adminName" elementType="Argument">
+              <stringProp name="Argument.name">adminName</stringProp>
+              <stringProp name="Argument.value">ats_user02</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="adminPassword" elementType="Argument">
+              <stringProp name="Argument.name">adminPassword</stringProp>
+              <stringProp name="Argument.value">frame1234!!</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables TH STAGE" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="serverName" elementType="Argument">
+              <stringProp name="Argument.name">serverName</stringProp>
+              <stringProp name="Argument.value">test.timhortonstapp.com</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="password" elementType="Argument">
+              <stringProp name="Argument.name">password</stringProp>
+              <stringProp name="Argument.value">password1</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="currentDateLong" elementType="Argument">
+              <stringProp name="Argument.name">currentDateLong</stringProp>
+              <stringProp name="Argument.value">${__time()}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="todayDate" elementType="Argument">
+              <stringProp name="Argument.name">todayDate</stringProp>
+              <stringProp name="Argument.value">${__time(yyyyMMdd)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="diffFromStart.S" elementType="Argument">
+              <stringProp name="Argument.name">diffFromStart.S</stringProp>
+              <stringProp name="Argument.value">${__javaScript((java.time.LocalTime.now().getHour()-6)*60*60)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="lang" elementType="Argument">
+              <stringProp name="Argument.name">lang</stringProp>
+              <stringProp name="Argument.value">en</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="yesterdayDate" elementType="Argument">
+              <stringProp name="Argument.name">yesterdayDate</stringProp>
+              <stringProp name="Argument.value">${__dateTimeConvert(${__longSum(${__time()},-86401)},,yyyyMMdd)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="startDateLong" elementType="Argument">
+              <stringProp name="Argument.name">startDateLong</stringProp>
+              <stringProp name="Argument.value">${__javaScript((java.time.LocalDateTime.now().toEpochSecond(java.time.ZoneOffset.UTC)*1000- java.time.LocalTime.now().getHour()*3600000).toString())}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="endDateLong" elementType="Argument">
+              <stringProp name="Argument.name">endDateLong</stringProp>
+              <stringProp name="Argument.value">${__javaScript((java.time.LocalDateTime.now().toEpochSecond(java.time.ZoneOffset.UTC)*1000- java.time.LocalTime.now().getHour()*3600000+82800000).toString())}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="standardDelay" elementType="Argument">
+              <stringProp name="Argument.name">standardDelay</stringProp>
+              <stringProp name="Argument.value">300</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="dag" elementType="Argument">
+              <stringProp name="Argument.name">dag</stringProp>
+              <stringProp name="Argument.value">1</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">Burger King: 10</stringProp>
+            </elementProp>
+            <elementProp name="adminName" elementType="Argument">
+              <stringProp name="Argument.name">adminName</stringProp>
+              <stringProp name="Argument.value">thramya</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="adminPassword" elementType="Argument">
+              <stringProp name="Argument.name">adminPassword</stringProp>
+              <stringProp name="Argument.value">Password!</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+          <collectionProp name="CookieManager.cookies"/>
+          <boolProp name="CookieManager.clearEachIteration">false</boolProp>
+        </CookieManager>
+        <hashTree/>
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${serverName}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </ConfigTestElement>
+        <hashTree/>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
+          <stringProp name="filename">/Users/olgajoloud/PerformanceTests-OnTrack/Jmeter_Tests/HomePage/data/managers_th.csv</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="variableNames">userName,userLocation,userDag</stringProp>
+          <boolProp name="ignoreFirstLine">false</boolProp>
+          <stringProp name="delimiter">,</stringProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">false</boolProp>
+          <boolProp name="stopThread">true</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
